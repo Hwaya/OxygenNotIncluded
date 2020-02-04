@@ -30,6 +30,15 @@
     <ClInclude Include="System\D2D\Renderer.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="System\D2D\Matrix.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Manager\ImageManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Manager\Node\Image.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="System\Base\Project.ico">
@@ -49,6 +58,15 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="System\D2D\Renderer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="System\D2D\Matrix.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Manager\ImageManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Manager\Node\Image.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
