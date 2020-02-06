@@ -6,6 +6,8 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
+#define _USE_MATH_DEFINES
+#include <math.h>
 
 /* D2D */
 #pragma comment(lib, "d2d1.lib")

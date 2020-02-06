@@ -21,9 +21,6 @@
     <ClInclude Include="System\Base\targetver.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="System\stdafx.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="System\Main\Main.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -37,6 +34,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="System\Manager\Node\Image.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
