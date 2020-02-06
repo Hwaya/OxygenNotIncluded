@@ -164,7 +164,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 			RENDERER.BeginDraw();
 			IMAGEMANAGER.Add("Test", _ResourcePath+"Test/" + "Test.png", 1669.f, 895.f);
-			IMAGEMANAGER.Find("Test")->Render(0.f, 0.f, 50.f, 50.f, 1.f);
+			IMAGEMANAGER.Find("Test")->Render(250.f, 125.f, 500.f, 250.f, 0.5f);
 			RENDERER.EndDraw();
 
             EndPaint(hWnd, &ps);

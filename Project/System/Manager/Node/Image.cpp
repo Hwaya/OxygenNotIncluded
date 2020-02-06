@@ -52,7 +52,8 @@ void Image::CreateImage(std::string filePath)
 	hr = info.srcBitmap->Initialize
 	(
 		info.frame,
-		GUID_WICPixelFormat32bppBGRA, 
+		/*GUID_WICPixelFormat32bppBGRA, */
+		GUID_WICPixelFormat32bppBGR,
 		WICBitmapDitherTypeNone, 
 		nullptr,
 		0.0f,
