@@ -12,8 +12,8 @@ private:
 public:
 	void Initialize();
 
-	void BeginPaint();
-	void EndPaint();
+	void BeginDraw();
+	void EndDraw();
 
 	ID2D1Factory* GetFactory() { return D2DFactory; }
 	ID2D1HwndRenderTarget* GetRenderTarget() { return D2DRenderTarget; }

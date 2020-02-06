@@ -6,18 +6,19 @@ SINGLETONCPP(Renderer)
 
 void Renderer::Initialize()
 {
+	CoInitialize(NULL);
 	InitializeD2DFactory();
 	CreateRenderTarget();
 	CreateWICFactory();
 }
 
-void Renderer::BeginPaint()
+void Renderer::BeginDraw()
 {
 	D2DRenderTarget->BeginDraw();
 	D2DRenderTarget->Clear(D2D1::ColorF(D2D1::ColorF::Black));
 }
 
-void Renderer::EndPaint()
+void Renderer::EndDraw()
 {
 	D2DRenderTarget->EndDraw();
 }

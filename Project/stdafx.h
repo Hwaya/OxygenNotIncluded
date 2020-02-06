@@ -109,3 +109,15 @@ void ClassName::Delete()					\
 /* Singleton Headers */
 #include "./System/D2D/Renderer.h"
 #include "./System/Manager/ImageManager.h"
+
+
+//enum Pivot
+//{
+//	PivotBegin = 0,
+//	PivotCenter,
+//	PivotBottom, 
+//	PivotTop,
+//	PivotLeftTop,
+//	PivotCenter,
+//	PivotEnd
+//};

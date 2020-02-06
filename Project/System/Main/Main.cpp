@@ -43,7 +43,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
-	CreateSingleton();
+	
 
     // 기본 메시지 루프입니다:
     while (GetMessage(&msg, nullptr, 0, 0))
@@ -118,7 +118,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
       return FALSE;
    }
 
-
+   CreateSingleton();
    ShowWindow(_hWnd, nCmdShow);
    UpdateWindow(_hWnd);
 
@@ -161,6 +161,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
+
+			Renderer::Get().BeginDraw();
+
+			Renderer::Get().EndDraw();
+
             EndPaint(hWnd, &ps);
         }
         break;
