@@ -162,9 +162,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
 
-			Renderer::Get().BeginDraw();
-
-			Renderer::Get().EndDraw();
+			RENDERER.BeginDraw();
+			IMAGEMANAGER.Add("Test", _ResourcePath+"Test/" + "Test.png", 1669.f, 895.f);
+			IMAGEMANAGER.Find("Test")->Render(0.f, 0.f, 50.f, 50.f, 1.f);
+			RENDERER.EndDraw();
 
             EndPaint(hWnd, &ps);
         }

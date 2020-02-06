@@ -1,50 +1,57 @@
 #include "stdafx.h"
 #include "Image.h"
 
-Image::Image(std::string filePath)
-	:path(filePath)
+void Image::Initialize(std::string filePath, float inputWidth, float inputHeight)
 {
-	Initialize();
+	info.path = filePath;
+	info.width = inputWidth;
+	info.height = inputHeight;
 	CreateImage(filePath);
 }
 
-void Image::Initialize()
+void Image::Initialize(std::string filePath, float inputWidth, float inputHeight, int inputFrameMaxX, int inputFrameMaxY, float inputFrameWidth, float inputFrameHeight)
 {
-	path = "";
-	srcBitmap = nullptr;
-	D2DBitmap = nullptr;
-	decoder = nullptr;
-	frame = nullptr;
+	info.path = filePath;
+	info.width = inputWidth;
+	info.height = inputHeight;
+	info.frameMaxX = inputFrameMaxX;
+	info.frameMaxY = inputFrameMaxY;
+	info.frameWidth = inputFrameWidth;
+	info.frameHeight = inputFrameHeight;
+	CreateImage(filePath);
 }
 
 void Image::CreateImage(std::string filePath)
 {
 	HRESULT hr = S_OK;
 
+	std::wstring abc = std::wstring(info.path.begin(), info.path.end());
+	LPCWSTR test = abc.c_str();
+
 	// Decoder 생성
 	hr = RENDERER.GetWICFactory()->CreateDecoderFromFilename
 	(
-		std::wstring(path.begin(), path.end()).c_str(),
+		std::wstring(info.path.begin(), info.path.end()).c_str(),
 		nullptr, 
 		GENERIC_READ, 
 		WICDecodeMetadataCacheOnDemand, 
-		&decoder
+		&info.decoder
 	);
 	assert(hr == S_OK);
 
 	// Frame 추출
-	hr = decoder->GetFrame(0, &frame);
+	hr = info.decoder->GetFrame(0, &info.frame);
 	assert(hr == S_OK);
 
 	//srcBitmap 초기화
-	SafeRelease(srcBitmap);
-	hr = RENDERER.GetWICFactory()->CreateFormatConverter(&srcBitmap);
+	SafeRelease(info.srcBitmap);
+	hr = RENDERER.GetWICFactory()->CreateFormatConverter(&info.srcBitmap);
 	assert(hr == S_OK);
 
 	//Frame에 따른 컨버터 생성
-	hr = srcBitmap->Initialize
+	hr = info.srcBitmap->Initialize
 	(
-		frame, 
+		info.frame,
 		GUID_WICPixelFormat32bppBGRA, 
 		WICBitmapDitherTypeNone, 
 		nullptr,
@@ -54,17 +61,17 @@ void Image::CreateImage(std::string filePath)
 	assert(hr == S_OK);
 
 	//컨버터 이미지로 실제 이미지 생성
-	SafeRelease(D2DBitmap);
-	hr = RENDERER.GetRenderTarget()->CreateBitmapFromWicBitmap(srcBitmap, nullptr, &D2DBitmap);
+	SafeRelease(info.D2DBitmap);
+	hr = RENDERER.GetRenderTarget()->CreateBitmapFromWicBitmap(info.srcBitmap, nullptr, &info.D2DBitmap);
 	assert(hr == S_OK);
 
-	SafeRelease(decoder);
-	SafeRelease(frame);
+	SafeRelease(info.decoder);
+	SafeRelease(info.frame);
 }
 
 void Image::Render(float x, float y, float sizeX, float sizeY, float alpha = 1.f)
 {
-	if (D2DBitmap != nullptr)
+	if (info.D2DBitmap != nullptr)
 	{
 
 		float left, top, right, bottom;
@@ -73,7 +80,7 @@ void Image::Render(float x, float y, float sizeX, float sizeY, float alpha = 1.f
 		right = x + sizeX / 2;
 		bottom = y + sizeY / 2;
 		::D2D1_RECT_F area =  D2D1::RectF(left, top, right, bottom);
-		RENDERER.GetRenderTarget()->DrawBitmap(D2DBitmap, area, alpha);
+		RENDERER.GetRenderTarget()->DrawBitmap(info.D2DBitmap, area, alpha);
 	}
 }
 

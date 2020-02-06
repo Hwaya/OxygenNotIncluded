@@ -121,3 +121,7 @@ void ClassName::Delete()					\
 //	PivotCenter,
 //	PivotEnd
 //};
+
+/* Param */
+static const std::string _ResourcePath = "../_Resource/";
+#define RESOURCEPATH "../_Resource/"

@@ -16,6 +16,7 @@ void Renderer::BeginDraw()
 {
 	D2DRenderTarget->BeginDraw();
 	D2DRenderTarget->Clear(D2D1::ColorF(D2D1::ColorF::Black));
+	D2DRenderTarget->SetTransform(D2D1::IdentityMatrix());
 }
 
 void Renderer::EndDraw()

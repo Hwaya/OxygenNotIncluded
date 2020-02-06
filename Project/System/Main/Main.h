@@ -10,5 +10,5 @@ void CreateSingleton()
 	ImageManager::Get().Initialize();
 }
 
-#define RENDERER Renderer::Get();
-#define IMAGEMANAGER ImageManager::Get();
+#define RENDERER Renderer::Get()
+#define IMAGEMANAGER ImageManager::Get()
