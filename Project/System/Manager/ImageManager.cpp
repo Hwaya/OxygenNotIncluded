@@ -8,6 +8,23 @@ void ImageManager::Initialize()
 
 }
 
+Image * ImageManager::newAdd(std::string key, std::string path, int inputFrameMaxX, int inputFrameMaxY)
+{
+	ImgIter tempIter;
+	tempIter = imageStorage.find(key);
+
+	if (tempIter != imageStorage.end())
+	{
+		return tempIter->second;
+	}
+
+	Image* newImage = new Image();
+	newImage->newInit(path, inputFrameMaxX, inputFrameMaxY);
+	imageStorage.insert(make_pair(key, newImage));
+
+	return newImage;
+}
+
 Image * ImageManager::Add(std::string key, std::string path)
 {
 	ImgIter tempIter;

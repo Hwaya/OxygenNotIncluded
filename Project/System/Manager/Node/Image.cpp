@@ -15,6 +15,14 @@ void Image::Initialize(std::string filePath, int inputFrameMaxX, int inputFrameM
 	CreateImage();
 }
 
+void Image::newInit(std::string filePath, int inputFrameMaxX, int inputFrameMaxY)
+{
+	info.path = filePath;
+	info.frameMaxX = inputFrameMaxX;
+	info.frameMaxY = inputFrameMaxY;
+	CreateImage();
+}
+
 void Image::CreateImage()
 {
 	HRESULT hr = S_OK;
@@ -64,6 +72,40 @@ void Image::CreateImage()
 
 	info.width = info.D2DBitmap->GetSize().width;
 	info.height = info.D2DBitmap->GetSize().height;
+}
+
+void Image::newRender(float x, float y, float sizeX, float sizeY, float alpha, float radian, int frameX, int frameY)
+{
+	if (info.D2DBitmap != nullptr)
+	{
+		info.frameWidth = info.width / info.frameMaxX;
+		info.frameHeight = info.height / info.frameMaxY;
+
+		/* Area Define */
+		float left, top, right, bottom;
+		left = x - sizeX / 2.f;
+		top = y - sizeY / 2.f;
+		right = x + sizeX / 2.f;
+		bottom = y + sizeY / 2.f;
+
+		::D2D1_RECT_F renderArea = D2D1::RectF(left, top, right, bottom);
+
+		/* Convert Radian to Degree */
+		float tempDegree = radian * 180 / M_PI;
+		D2D1::Matrix3x2F tempRotateMatrix = D2D1::Matrix3x2F::Rotation(tempDegree, D2D1::Point2F(x, y));
+
+		::D2D1_RECT_F cropArea = D2D1::RectF(info.frameWidth*frameX, info.frameHeight*frameY, info.frameWidth*(frameX + 1), info.frameHeight * (frameY + 1));
+
+		RENDERER.GetRenderTarget()->SetTransform(tempRotateMatrix);
+		RENDERER.GetRenderTarget()->DrawBitmap(
+			info.D2DBitmap,
+			renderArea,
+			alpha,
+			D2D1_BITMAP_INTERPOLATION_MODE_LINEAR,
+			cropArea
+		);
+		RENDERER.GetRenderTarget()->SetTransform(D2D1::Matrix3x2F::Identity());
+	}
 }
 
 void Image::Render(float x, float y, float sizeX, float sizeY, float alpha = 1.f)

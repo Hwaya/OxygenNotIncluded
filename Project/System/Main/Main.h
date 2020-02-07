@@ -12,3 +12,5 @@ void CreateSingleton()
 #define IMAGEMANAGER ImageManager::Get()
 
 int cnt = 0;
+float rot = 0.f;
+float alp = 0.f;

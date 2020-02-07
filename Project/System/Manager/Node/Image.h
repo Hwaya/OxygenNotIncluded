@@ -38,7 +38,11 @@ public:
 	void Initialize(std::string filePath);
 	void Initialize(std::string filePath, int inputFrameMaxX, int inputFrameMaxY);
 
+	void newInit(std::string filePath, int inputFrameMaxX = 1, int inputFrameMaxY = 1);
+
 	void CreateImage();
+
+	void newRender(float x, float y, float sizeX, float sizeY, float alpha = 1.f, float radian = 0.f, int frameX = 0, int frameY = 0);
 
 	void Render(float x, float y, float sizeX, float sizeY, float alpha);
 	void Render(float x, float y, float sizeX, float sizeY, float radian, float alpha);

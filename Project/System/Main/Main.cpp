@@ -179,8 +179,21 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			++cnt;
 			if (cnt > 14) cnt = 0;
 
+			rot = rot + 0.02f;
+			if (rot > M_PI * 2) rot = 0.f;
+
+			alp = alp + 0.1f;
+			if (alp > 1.0) alp = 0.f;
+
+
 			IMAGEMANAGER.FrameAdd("FrameTest", _ResourcePath + "Test/FrameTest.png", 15, 1);
-			IMAGEMANAGER.Find("FrameTest")->FrameRender(500.f, 500.f, 200.f, 200.f, cnt, 0, 1.0f);
+			IMAGEMANAGER.Find("FrameTest")->FrameRender(100.f, 500.f, 200.f, 200.f, cnt, 0, 1.0f);
+
+			IMAGEMANGER.newAdd("FrameTesty", _ResourcePath + "Test/FrameTest.png", 15, 1);
+
+			//IMAGEMANAGER.Find("FrameTesty")->newRender(500.f, 300.f, 300.f, 300.f);
+			IMAGEMANAGER.Find("FrameTesty")->newRender(500.f, 200.f, 300.f, 300.f, 1.f, rot, cnt, 0);
+
 
 			RENDERER.EndDraw();
 
