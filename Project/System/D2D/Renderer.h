@@ -19,6 +19,8 @@ private:
 	IDWriteFactory* dwFactory;
 	ID2D1SolidColorBrush *brush = 0;
 
+	bool isDebugMode;
+
 public:
 	void Initialize();
 
@@ -36,10 +38,12 @@ public:
 	void DrawElipse(D2D1_RECT_F rect, D2D1_COLOR_F color = COLORBLACK, float thikness = 1.0f, float radian = 0.f);
 	void DrawElipse(float x, float y, float sizeX, float sizeY, D2D1_COLOR_F color = COLORBLACK, float thikness = 1.0f, float radian = 0.f);
 	
+	void DebugMode(bool input) { isDebugMode = input; }
+	bool IsDebugMode() { return isDebugMode; }
 
 private:
 	void InitializeD2D();
 	void CreateRenderTarget();
 };
 
-#define RENDERER Renderer::Get()
+#define RENDER Renderer::Get()

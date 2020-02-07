@@ -24,12 +24,11 @@
 #include <d2d1helper.h>
 #include <dwrite.h>
 
-
-
 /* Window Setting */
 extern HWND _hWnd;
 extern HINSTANCE _hInstance;
 
+#define WINNAME L"Oxygen Not Included"
 #define WINSIZEX 1024
 #define WINSIZEY 768
 #define WINPOSX 100
@@ -107,23 +106,14 @@ void ClassName::Delete()					\
 	}										\
 }
 	
+/* Define */
+static const std::string _ResourcePath = "../_Resource/";
+#define RESOURCEPATH "../_Resource/"
+
+#define RENDER Renderer::Get()
+#define IMAGEMANAGER ImageManager::Get()
+
 /* Singleton Headers */
 #include "./System/D2D/Renderer.h"
 #include "./System/Manager/ImageManager.h"
-
-
-//enum Pivot
-//{
-//	PivotBegin = 0,
-//	PivotCenter,
-//	PivotBottom, 
-//	PivotTop,
-//	PivotLeftTop,
-//	PivotCenter,
-//	PivotEnd
-//};
-
-/* Param */
-static const std::string _ResourcePath = "../_Resource/";
-#define RESOURCEPATH "../_Resource/"
 

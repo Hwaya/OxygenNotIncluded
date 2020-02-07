@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Matrix.h"
 
-Matrix::Matrix(POINTFLOAT pos, POINTFLOAT scale, float radian)
+Matrix::Matrix(D2D1_POINT_2F pos, D2D1_POINT_2F scale, float radian)
 {
 	rotation = radian;
 	position = pos;
@@ -14,7 +14,11 @@ Matrix::Matrix(POINTFLOAT pos, POINTFLOAT scale, float radian)
 	CalculateMatrix();
 }
 
-void Matrix::SetScale(POINTFLOAT inputScale)
+Matrix::~Matrix()
+{
+}
+
+void Matrix::SetScale(D2D1_POINT_2F inputScale)
 {
 	scale = D2D1::Matrix3x2F::Scale(inputScale.x, inputScale.y);
 	CalculateMatrix();

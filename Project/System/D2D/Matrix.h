@@ -7,12 +7,13 @@ private:
 	D2D1::Matrix3x2F translate;
 	D2D1::Matrix3x2F matrix;
 
-	POINTFLOAT position;
+	D2D1_POINT_2F position;
 	float rotation;
-	POINTFLOAT scaleValue;
+	D2D1_POINT_2F scaleValue;
 
 public:
-	Matrix(POINTFLOAT pos, POINTFLOAT scale = { 1,1 }, float radian = 0.f);
+	Matrix(D2D1_POINT_2F pos, D2D1_POINT_2F scale = { 1,1 }, float radian = 0.f);
+	~Matrix();
 
 	void CalculateMatrix()
 	{
@@ -20,10 +21,12 @@ public:
 	}
 
 	D2D1::Matrix3x2F GetMatrix() { return matrix; }
-	POINTFLOAT GetPosition() { return position; }
+	D2D1_POINT_2F GetPosition() { return position; }
+	D2D1_POINT_2F GetScale() { return scaleValue; }
 	float GetRotation() { return rotation; }
 
-	void SetScale(POINTFLOAT inputScale);
+
+	void SetScale(D2D1_POINT_2F inputScale);
 	void SetScale(float x, float y);
 	void SetScale(float x);
 

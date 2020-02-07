@@ -39,6 +39,12 @@
     <ClInclude Include="stdafx.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Object\Base\ObjectBase.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Main\Bedrock.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="System\Base\Project.ico">
@@ -67,6 +73,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="System\Manager\Node\Image.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Object\Base\ObjectBase.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="System\Main\Bedrock.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

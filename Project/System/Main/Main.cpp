@@ -4,6 +4,8 @@
 #include "stdafx.h"
 #include "Main.h"
 
+#include "Bedrock.h"
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -11,6 +13,9 @@ HWND _hWnd;
 HINSTANCE _hInstance;
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
+
+POINT _mousePos;
+Bedrock _main;
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -44,8 +49,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     MSG msg;
 
 	
+	if (FAILED(_main.Initialize()))
+	{
+		return 0;
+	}
+
 
     // 기본 메시지 루프입니다:
+	/*
     while (GetMessage(&msg, nullptr, 0, 0))
     {
         if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
@@ -57,7 +68,28 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
         }
     }
+	*/
 
+	while (true)
+	{
+		if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+		{
+			if (msg.message == WM_QUIT) break;
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+		else
+		{
+			_main.Update();
+
+			RENDER.BeginDraw();
+
+			_main.Render();
+
+			RENDER.EndDraw();
+		}
+	}
+	_main.Release();
     return (int) msg.wParam;
 }
 
@@ -105,7 +137,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    _hWnd = CreateWindowW(
 	   szWindowClass, 
-	   szTitle, 
+	   WINNAME, 
 	   WS_OVERLAPPEDWINDOW,
 	   WINPOSX, 
 	   WINPOSY, 
@@ -121,9 +153,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
       return FALSE;
    }
 
-   CreateSingleton();
-   RENDERER.Initialize();
-   IMAGEMANAGER.Initialize();
+   SingletonCreate();
+   SingletonInitialize();
+
    ShowWindow(_hWnd, nCmdShow);
    UpdateWindow(_hWnd);
 
@@ -169,41 +201,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
 
-			RENDERER.BeginDraw();
-
-			IMAGEMANAGER.Add("Test", _ResourcePath + "Test/" + "Test.png");
-			IMAGEMANAGER.Find("Test")->Render(250.f, 125.f, 500.f, 250.f, M_PI / 2.f, 0.5f);
-			IMAGEMANAGER.Find("Test")->Render(100.f, 50.f, 200.f, 200.f, M_PI / 1.5f, 1.f);
-			IMAGEMANAGER.Find("Test")->Render(300.f, 300.f, 200.f, 200.f, M_PI / 1.5f, 1.f);
-
-			++cnt;
-			if (cnt > 14) cnt = 0;
-
-			rot = rot + 0.02f;
-			if (rot > M_PI * 2) rot = 0.f;
-
-			alp = alp + 0.1f;
-			if (alp > 1.0) alp = 0.f;
-
-
-			IMAGEMANAGER.FrameAdd("FrameTest", _ResourcePath + "Test/FrameTest.png", 15, 1);
-			IMAGEMANAGER.Find("FrameTest")->FrameRender(100.f, 500.f, 200.f, 200.f, cnt, 0, 1.0f);
-
-			IMAGEMANGER.newAdd("FrameTesty", _ResourcePath + "Test/FrameTest.png", 15, 1);
-
-			//IMAGEMANAGER.Find("FrameTesty")->newRender(500.f, 300.f, 300.f, 300.f);
-			IMAGEMANAGER.Find("FrameTesty")->newRender(500.f, 200.f, 300.f, 300.f, 1.f, rot, cnt, 0);
-
-
-			RENDERER.DrawLine(100.f, 100.f, 500.f, 500.f, D2D1::ColorF(D2D1::ColorF::White));
-
-			RENDERER.DrawRectangle(D2D1::RectF(0, 0, 100, 100), D2D1::ColorF(D2D1::ColorF::White), 3.f, rot);
-
-			RENDERER.DrawElipse(D2D1::RectF(200, 200, 400, 500), D2D1::ColorF(D2D1::ColorF::Red), 5.f, rot);
-
-			RENDERER.DrawElipse(500, 500, 300, 250, D2D1::ColorF(D2D1::ColorF::Blue), 10.f, rot);
-
-			RENDERER.EndDraw();
+		
 
             EndPaint(hWnd, &ps);
         }

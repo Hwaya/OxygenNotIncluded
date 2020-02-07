@@ -153,6 +153,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="System\Main\Bedrock.h" />
+    <ClInclude Include="Game\Object\Base\ObjectBase.h" />
     <ClInclude Include="System\Manager\Node\Image.h" />
     <ClInclude Include="System\Manager\ImageManager.h" />
     <ClInclude Include="System\D2D\Matrix.h" />
@@ -163,6 +165,8 @@
     <ClInclude Include="System\Base\targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="System\Main\Bedrock.cpp" />
+    <ClCompile Include="Game\Object\Base\ObjectBase.cpp" />
     <ClCompile Include="System\Manager\Node\Image.cpp" />
     <ClCompile Include="System\Manager\ImageManager.cpp" />
     <ClCompile Include="System\D2D\Matrix.cpp" />

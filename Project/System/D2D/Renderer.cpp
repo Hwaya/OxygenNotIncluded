@@ -6,9 +6,10 @@ SINGLETONCPP(Renderer)
 
 void Renderer::Initialize()
 {
-	
 	InitializeD2D();
 	CreateRenderTarget();
+
+	isDebugMode = false;
 }
 
 void Renderer::BeginDraw()
@@ -39,10 +40,10 @@ void Renderer:: DrawRectangle(D2D1_RECT_F rect, D2D1_COLOR_F color, float thikne
 	D2D1::Matrix3x2F tempRotateMatrix = D2D1::Matrix3x2F::Rotation(tempDegree, D2D1::Point2F(
 		(rect.right + rect.left) / 2.f, (rect.top + rect.bottom) / 2.f));
 
-	RENDERER.GetRenderTarget()->SetTransform(tempRotateMatrix);
+	D2DRenderTarget->SetTransform(tempRotateMatrix);
 	D2DRenderTarget->CreateSolidColorBrush(color, &brush);
 	D2DRenderTarget->DrawRectangle(rect, brush, thikness);
-	RENDERER.GetRenderTarget()->SetTransform(D2D1::Matrix3x2F::Identity());
+	D2DRenderTarget->SetTransform(D2D1::Matrix3x2F::Identity());
 
 }
 
@@ -51,10 +52,10 @@ void Renderer::DrawRectangle(float x, float y, float sizeX, float sizeY, D2D1_CO
 	float tempDegree = radian * 180 / M_PI;
 	D2D1::Matrix3x2F tempRotateMatrix = D2D1::Matrix3x2F::Rotation(tempDegree, D2D1::Point2F(x, y));
 
-	RENDERER.GetRenderTarget()->SetTransform(tempRotateMatrix);
+	D2DRenderTarget->SetTransform(tempRotateMatrix);
 	D2DRenderTarget->CreateSolidColorBrush(color, &brush);
 	D2DRenderTarget->DrawRectangle(D2D1::RectF(x - sizeX * 0.5f, y - sizeY * 0.5f, x + sizeX * 0.5f, y + sizeY * 0.5f), brush, thikness);
-	RENDERER.GetRenderTarget()->SetTransform(D2D1::Matrix3x2F::Identity());
+	D2DRenderTarget->SetTransform(D2D1::Matrix3x2F::Identity());
 }
 
 void Renderer::DrawElipse(D2D1_RECT_F rect, D2D1_COLOR_F color, float thikness, float radian)
@@ -63,11 +64,11 @@ void Renderer::DrawElipse(D2D1_RECT_F rect, D2D1_COLOR_F color, float thikness, 
 	D2D1::Matrix3x2F tempRotateMatrix = D2D1::Matrix3x2F::Rotation(tempDegree, D2D1::Point2F(
 		(rect.right + rect.left) / 2.f, (rect.top + rect.bottom) / 2.f));
 
-	RENDERER.GetRenderTarget()->SetTransform(tempRotateMatrix);
+	D2DRenderTarget->SetTransform(tempRotateMatrix);
 	D2DRenderTarget->CreateSolidColorBrush(color, &brush);
 	D2DRenderTarget->DrawEllipse(D2D1::Ellipse(D2D1::Point2F((rect.right + rect.left) / 2.f,(rect.bottom + rect.top)/2.f),
 		(rect.right - rect.left) / 2.f, (rect.bottom - rect.top) / 2.f), brush, thikness);
-	RENDERER.GetRenderTarget()->SetTransform(D2D1::Matrix3x2F::Identity());
+	D2DRenderTarget->SetTransform(D2D1::Matrix3x2F::Identity());
 }
 
 void Renderer::DrawElipse(float x, float y, float sizeX, float sizeY, D2D1_COLOR_F color, float thikness, float radian)
@@ -75,11 +76,11 @@ void Renderer::DrawElipse(float x, float y, float sizeX, float sizeY, D2D1_COLOR
 	float tempDegree = radian * 180 / M_PI;
 	D2D1::Matrix3x2F tempRotateMatrix = D2D1::Matrix3x2F::Rotation(tempDegree, D2D1::Point2F(x, y));
 
-	RENDERER.GetRenderTarget()->SetTransform(tempRotateMatrix);
+	D2DRenderTarget->SetTransform(tempRotateMatrix);
 	D2DRenderTarget->CreateSolidColorBrush(color, &brush);
 	D2DRenderTarget->DrawEllipse(D2D1::Ellipse(D2D1::Point2F(x, y),
 		x - sizeX / 2.f,y - sizeY / 2.f),brush,thikness);
-	RENDERER.GetRenderTarget()->SetTransform(D2D1::Matrix3x2F::Identity());
+	D2DRenderTarget->SetTransform(D2D1::Matrix3x2F::Identity());
 }
 
 void Renderer::InitializeD2D()

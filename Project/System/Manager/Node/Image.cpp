@@ -30,7 +30,7 @@ void Image::CreateImage()
 
 	// Decoder 생성
 	IWICBitmapDecoder* decoder = nullptr;
-	hr = RENDERER.GetWICFactory()->CreateDecoderFromFilename
+	hr = RENDER.GetWICFactory()->CreateDecoderFromFilename
 	(
 		std::wstring(info.path.begin(), info.path.end()).c_str(),
 		nullptr, 
@@ -47,7 +47,7 @@ void Image::CreateImage()
 
 	//srcBitmap 초기화
 	IWICFormatConverter* srcBitmap = nullptr;
-	hr = RENDERER.GetWICFactory()->CreateFormatConverter(&srcBitmap);
+	hr = RENDER.GetWICFactory()->CreateFormatConverter(&srcBitmap);
 	assert(hr == S_OK);
 
 	//Frame에 따른 컨버터 생성
@@ -64,7 +64,7 @@ void Image::CreateImage()
 
 	//컨버터 이미지로 실제 이미지 생성
 	info.D2DBitmap = nullptr;
-	hr = RENDERER.GetRenderTarget()->CreateBitmapFromWicBitmap(srcBitmap, nullptr, &info.D2DBitmap);
+	hr = RENDER.GetRenderTarget()->CreateBitmapFromWicBitmap(srcBitmap, nullptr, &info.D2DBitmap);
 	assert(hr == S_OK);
 
 	SafeRelease(decoder);
@@ -96,15 +96,15 @@ void Image::newRender(float x, float y, float sizeX, float sizeY, float alpha, f
 
 		::D2D1_RECT_F cropArea = D2D1::RectF(info.frameWidth*frameX, info.frameHeight*frameY, info.frameWidth*(frameX + 1), info.frameHeight * (frameY + 1));
 
-		RENDERER.GetRenderTarget()->SetTransform(tempRotateMatrix);
-		RENDERER.GetRenderTarget()->DrawBitmap(
+		RENDER.GetRenderTarget()->SetTransform(tempRotateMatrix);
+		RENDER.GetRenderTarget()->DrawBitmap(
 			info.D2DBitmap,
 			renderArea,
 			alpha,
 			D2D1_BITMAP_INTERPOLATION_MODE_LINEAR,
 			cropArea
 		);
-		RENDERER.GetRenderTarget()->SetTransform(D2D1::Matrix3x2F::Identity());
+		RENDER.GetRenderTarget()->SetTransform(D2D1::Matrix3x2F::Identity());
 	}
 }
 
@@ -121,8 +121,8 @@ void Image::Render(float x, float y, float sizeX, float sizeY, float alpha = 1.f
 		::D2D1_RECT_F renderArea =  D2D1::RectF(left, top, right, bottom);
 
 		/* Render */
-		RENDERER.GetRenderTarget()->DrawBitmap(info.D2DBitmap, renderArea, alpha);
-		RENDERER.GetRenderTarget()->SetTransform(D2D1::Matrix3x2F::Identity());
+		RENDER.GetRenderTarget()->DrawBitmap(info.D2DBitmap, renderArea, alpha);
+		RENDER.GetRenderTarget()->SetTransform(D2D1::Matrix3x2F::Identity());
 	}
 }
 
@@ -143,9 +143,9 @@ void Image::Render(float x, float y, float sizeX, float sizeY, float radian, flo
 		D2D1::Matrix3x2F tempRotateMatrix = D2D1::Matrix3x2F::Rotation(tempDegree, D2D1::Point2F(x, y));
 
 		/* Render */
-		RENDERER.GetRenderTarget()->SetTransform(tempRotateMatrix);
-		RENDERER.GetRenderTarget()->DrawBitmap(info.D2DBitmap, renderArea, alpha);
-		RENDERER.GetRenderTarget()->SetTransform(D2D1::Matrix3x2F::Identity());
+		RENDER.GetRenderTarget()->SetTransform(tempRotateMatrix);
+		RENDER.GetRenderTarget()->DrawBitmap(info.D2DBitmap, renderArea, alpha);
+		RENDER.GetRenderTarget()->SetTransform(D2D1::Matrix3x2F::Identity());
 	}
 }
 
@@ -166,14 +166,14 @@ void Image::FrameRender(float x, float y, float sizeX, float sizeY, int frameX, 
 
 		::D2D1_RECT_F cropArea = D2D1::RectF(info.frameWidth*(frameX), info.frameHeight*frameY, info.frameWidth*(frameX + 1), info.frameHeight * (frameY + 1));
 
-		RENDERER.GetRenderTarget()->DrawBitmap(
+		RENDER.GetRenderTarget()->DrawBitmap(
 			info.D2DBitmap,
 			renderArea,
 			alpha,
 			D2D1_BITMAP_INTERPOLATION_MODE_LINEAR,
 			cropArea
 			);
-		RENDERER.GetRenderTarget()->SetTransform(D2D1::Matrix3x2F::Identity());
+		RENDER.GetRenderTarget()->SetTransform(D2D1::Matrix3x2F::Identity());
 	}
 }
 
