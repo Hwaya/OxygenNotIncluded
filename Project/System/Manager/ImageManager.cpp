@@ -8,36 +8,38 @@ void ImageManager::Initialize()
 
 }
 
-Image * ImageManager::Add(std::string key, std::string path, float inputWidth, float inputHeight)
+Image * ImageManager::Add(std::string key, std::string path)
 {
 	ImgIter tempIter;
 	tempIter = imageStorage.find(key);
+
 	if (tempIter != imageStorage.end())
 	{
 		return tempIter->second;
 	}
-	else
-	{
-		Image* newImage = new Image();
-		newImage->Initialize(path, inputWidth, inputHeight);
-		imageStorage.insert(make_pair(key, newImage));
-	}
+
+	Image* newImage = new Image();
+	newImage->Initialize(path);
+	imageStorage.insert(make_pair(key, newImage));
+
+	return newImage;
 }
 
-Image * ImageManager::FrameAdd(std::string key, std::string path, float inputWidth, float inputHeight, int inputFrameMaxX, int inputFrameMaxY, float inputFrameWidth, float inputFrameHeight)
+Image * ImageManager::FrameAdd(std::string key, std::string path, int inputFrameMaxX = 1, int inputFrameMaxY = 1)
 {
 	ImgIter tempIter;
 	tempIter = imageStorage.find(key);
+
 	if (tempIter != imageStorage.end())
 	{
 		return tempIter->second;
 	}
-	else
-	{
-		Image* newImage = new Image();
-		newImage->Initialize(path, inputWidth, inputHeight, inputFrameMaxX, inputFrameMaxY, inputFrameWidth, inputFrameHeight);
-		imageStorage.insert(make_pair(key, newImage));
-	}
+	
+	Image* newImage = new Image();
+	newImage->Initialize(path, inputFrameMaxX, inputFrameMaxY);
+	imageStorage.insert(make_pair(key, newImage));
+
+	return newImage;
 }
 
 Image * ImageManager::Find(std::string key)

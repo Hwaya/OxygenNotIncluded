@@ -52,6 +52,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
+			
+			InvalidateRect(_hWnd, NULL, false);
+
         }
     }
 
@@ -72,7 +75,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.cbSize = sizeof(WNDCLASSEX);
 
     wcex.style          = CS_HREDRAW | CS_VREDRAW;
-    wcex.lpfnWndProc    = WndProc;
+    wcex.lpfnWndProc    = (WNDPROC)WndProc;
     wcex.cbClsExtra     = 0;
     wcex.cbWndExtra     = 0;
     wcex.hInstance      = hInstance;
@@ -119,6 +122,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    }
 
    CreateSingleton();
+   RENDERER.Initialize();
+   IMAGEMANAGER.Initialize();
    ShowWindow(_hWnd, nCmdShow);
    UpdateWindow(_hWnd);
 
@@ -139,6 +144,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
+	case WM_CREATE:
+		break;
     case WM_COMMAND:
         {
             int wmId = LOWORD(wParam);
@@ -163,8 +170,18 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
 
 			RENDERER.BeginDraw();
-			IMAGEMANAGER.Add("Test", _ResourcePath+"Test/" + "Test.png", 1669.f, 895.f);
-			IMAGEMANAGER.Find("Test")->Render(250.f, 125.f, 500.f, 250.f, 0.5f);
+
+			IMAGEMANAGER.Add("Test", _ResourcePath + "Test/" + "Test.png");
+			IMAGEMANAGER.Find("Test")->Render(250.f, 125.f, 500.f, 250.f, M_PI / 2.f, 0.5f);
+			IMAGEMANAGER.Find("Test")->Render(100.f, 50.f, 200.f, 200.f, M_PI / 1.5f, 1.f);
+			IMAGEMANAGER.Find("Test")->Render(300.f, 300.f, 200.f, 200.f, M_PI / 1.5f, 1.f);
+
+			++cnt;
+			if (cnt > 14) cnt = 0;
+
+			IMAGEMANAGER.FrameAdd("FrameTest", _ResourcePath + "Test/FrameTest.png", 15, 1);
+			IMAGEMANAGER.Find("FrameTest")->FrameRender(500.f, 500.f, 200.f, 200.f, cnt, 0, 1.0f);
+
 			RENDERER.EndDraw();
 
             EndPaint(hWnd, &ps);
@@ -173,6 +190,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
+	case WM_TIMER:
+		break;
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
     }

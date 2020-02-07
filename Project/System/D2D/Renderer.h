@@ -21,9 +21,8 @@ public:
 	
 
 private:
-	void InitializeD2DFactory();
+	void InitializeD2D();
 	void CreateRenderTarget();
-	void CreateWICFactory();
 };
 
 #define RENDERER Renderer::Get()

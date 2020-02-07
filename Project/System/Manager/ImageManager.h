@@ -8,13 +8,8 @@ class ImageManager
 public:
 	void Initialize();
 
-	/*void Initialize(std::string filePath, float inputWidth, float inputHeight);
-	void Initialize(std::string filePath, float inputWidth, float inputHeight, int inputFrameMaxX, int inputFrameMaxY,
-		float inputFrameWidth, float inputFrameHeight);*/
-
-	Image* Add(std::string key, std::string path, float inputWidth, float inputHeight);
-	Image* FrameAdd(std::string key, std::string path, float inputWidth, float inputHeight,
-		int inputFrameMaxX, int inputFrameMaxY, float inputFrameWidth, float inputFrameHeight);
+	Image* Add(std::string key, std::string path);
+	Image* FrameAdd(std::string key, std::string path, int inputFrameMaxX, int inputFrameMaxY);
 	Image* Find(std::string key);
 	void Del(std::string key);
 

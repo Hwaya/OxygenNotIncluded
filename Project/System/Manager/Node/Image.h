@@ -14,10 +14,7 @@ private:
 		float frameWidth;
 		float frameHeight;
 
-		IWICFormatConverter* srcBitmap;
 		ID2D1Bitmap* D2DBitmap;
-		IWICBitmapDecoder* decoder;
-		IWICBitmapFrameDecode* frame;
 
 		imageInfo()
 		{
@@ -28,11 +25,6 @@ private:
 			frameMaxY = 0;
 			frameWidth = 0.f;
 			frameHeight = 0.f;
-
-			srcBitmap = nullptr;
-			D2DBitmap = nullptr;
-			decoder = nullptr;
-			frame = nullptr;
 		}
 	};
 	
@@ -43,16 +35,17 @@ public:
 	Image() {}
 	~Image() {}
 	
-	void Initialize(std::string filePath, float inputWidth, float inputHeight);
-	void Initialize(std::string filePath, float inputWidth, float inputHeight, int inputFrameMaxX, int inputFrameMaxY,
-		float inputFrameWidth, float inputFrameHeight);
+	void Initialize(std::string filePath);
+	void Initialize(std::string filePath, int inputFrameMaxX, int inputFrameMaxY);
 
-	void CreateImage(std::string filePath);
+	void CreateImage();
 
 	void Render(float x, float y, float sizeX, float sizeY, float alpha);
 	void Render(float x, float y, float sizeX, float sizeY, float radian, float alpha);
 
-	void FrameRender(float x, float y, float sizeX, float sizeY, int frameX, int frameY);
-	void FrameRender(float x, float y, float sizeX, float sizeY, float radian, int frameX, int frameY);
+	void FrameRender(float x, float y, float sizeX, float sizeY, int frameX, int frameY, float alpha);
+	void FrameRender(float x, float y, float sizeX, float sizeY, float radian, int frameX, int frameY, float alpha);
 };
 
+// radian À» Degree·Î
+// radian * 180 / pi;
