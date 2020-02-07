@@ -195,6 +195,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			IMAGEMANAGER.Find("FrameTesty")->newRender(500.f, 200.f, 300.f, 300.f, 1.f, rot, cnt, 0);
 
 
+			RENDERER.DrawLine(100.f, 100.f, 500.f, 500.f, D2D1::ColorF(D2D1::ColorF::White));
+
+			RENDERER.DrawRectangle(D2D1::RectF(0, 0, 100, 100), D2D1::ColorF(D2D1::ColorF::White), 3.f, rot);
+
+			RENDERER.DrawElipse(D2D1::RectF(200, 200, 400, 500), D2D1::ColorF(D2D1::ColorF::Red), 5.f, rot);
+
+			RENDERER.DrawElipse(500, 500, 300, 250, D2D1::ColorF(D2D1::ColorF::Blue), 10.f, rot);
+
 			RENDERER.EndDraw();
 
             EndPaint(hWnd, &ps);

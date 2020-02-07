@@ -122,6 +122,7 @@ void Image::Render(float x, float y, float sizeX, float sizeY, float alpha = 1.f
 
 		/* Render */
 		RENDERER.GetRenderTarget()->DrawBitmap(info.D2DBitmap, renderArea, alpha);
+		RENDERER.GetRenderTarget()->SetTransform(D2D1::Matrix3x2F::Identity());
 	}
 }
 
@@ -172,6 +173,7 @@ void Image::FrameRender(float x, float y, float sizeX, float sizeY, int frameX, 
 			D2D1_BITMAP_INTERPOLATION_MODE_LINEAR,
 			cropArea
 			);
+		RENDERER.GetRenderTarget()->SetTransform(D2D1::Matrix3x2F::Identity());
 	}
 }
 

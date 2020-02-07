@@ -22,6 +22,7 @@
 #include <wincodec.h>
 #include <d2d1.h>
 #include <d2d1helper.h>
+#include <dwrite.h>
 
 
 
@@ -125,3 +126,4 @@ void ClassName::Delete()					\
 /* Param */
 static const std::string _ResourcePath = "../_Resource/";
 #define RESOURCEPATH "../_Resource/"
+
