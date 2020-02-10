@@ -15,7 +15,7 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 #include <string>
-#include <assert.h>
+#include <assert.h> 
 #include <functional>
 
 /* D2D Library, Headers */
