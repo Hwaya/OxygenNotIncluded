@@ -110,10 +110,13 @@ void ClassName::Delete()					\
 static const std::string _ResourcePath = "../_Resource/";
 #define RESOURCEPATH "../_Resource/"
 
-#define RENDER Renderer::Get()
-#define IMAGEMANAGER ImageManager::Get()
 
 /* Singleton Headers */
 #include "./System/D2D/Renderer.h"
-#include "./System/Manager/ImageManager.h"
+#include "./System/Image/ImageManager.h"
 
+#include "./Game/Object/Base/Object.h"
+
+
+#define RENDER Renderer::Get()
+#define IMAGEMANAGER ImageManager::Get()

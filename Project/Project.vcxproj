@@ -153,25 +153,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="System\Main\Bedrock.h" />
-    <ClInclude Include="Game\Object\Base\ObjectBase.h" />
-    <ClInclude Include="System\Manager\Node\Image.h" />
-    <ClInclude Include="System\Manager\ImageManager.h" />
+    <ClInclude Include="Game\Object\Tile\TileInfo.h" />
+    <ClInclude Include="System\Main\Main.h" />
+    <ClInclude Include="Game\Object\Base\Object.h" />
+    <ClInclude Include="System\Image\Node\Image.h" />
+    <ClInclude Include="System\Image\ImageManager.h" />
     <ClInclude Include="System\D2D\Matrix.h" />
     <ClInclude Include="System\D2D\Renderer.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="System\Main\Main.h" />
+    <ClInclude Include="System\Main\Windows.h" />
     <ClInclude Include="System\Base\Resource.h" />
     <ClInclude Include="System\Base\targetver.h" />
+    <ClInclude Include="Game\Object\Tile\Node\TileNode.h" />
+    <ClInclude Include="Game\Object\Tile\TileManager.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="System\Main\Bedrock.cpp" />
-    <ClCompile Include="Game\Object\Base\ObjectBase.cpp" />
-    <ClCompile Include="System\Manager\Node\Image.cpp" />
-    <ClCompile Include="System\Manager\ImageManager.cpp" />
+    <ClCompile Include="System\Main\Main.cpp" />
+    <ClCompile Include="Game\Object\Base\Object.cpp" />
+    <ClCompile Include="System\Image\Node\Image.cpp" />
+    <ClCompile Include="System\Image\ImageManager.cpp" />
     <ClCompile Include="System\D2D\Matrix.cpp" />
     <ClCompile Include="System\D2D\Renderer.cpp" />
-    <ClCompile Include="System\Main\Main.cpp" />
+    <ClCompile Include="System\Main\Windows.cpp" />
+    <ClCompile Include="Game\Object\Tile\Node\TileNode.cpp" />
+    <ClCompile Include="Game\Object\Tile\TileManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="System\Base\Project.rc" />

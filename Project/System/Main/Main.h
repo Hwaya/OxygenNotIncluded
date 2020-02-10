@@ -1,14 +1,15 @@
 #pragma once
-
-#include "../Base/Resource.h"
-
-void SingletonCreate()
+class Bedrock
 {
-	Renderer::Create();
-	ImageManager::Create();
-}
-void SingletonInitialize()
-{
-	RENDER.Initialize();
-	IMAGEMANAGER.Initialize();
-}
+private:
+
+public:
+	Bedrock();
+	~Bedrock();
+
+	HRESULT Initialize();
+	void Release();
+	void Update();
+	void Render();
+};
+

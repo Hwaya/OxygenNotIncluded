@@ -8,7 +8,7 @@ void ImageManager::Initialize()
 
 }
 
-Image * ImageManager::newAdd(std::string key, std::string path, int inputFrameMaxX, int inputFrameMaxY)
+Image * ImageManager::Add(std::string key, std::string path, int inputFrameMaxX, int inputFrameMaxY)
 {
 	ImgIter tempIter;
 	tempIter = imageStorage.find(key);
@@ -19,12 +19,12 @@ Image * ImageManager::newAdd(std::string key, std::string path, int inputFrameMa
 	}
 
 	Image* newImage = new Image();
-	newImage->newInit(path, inputFrameMaxX, inputFrameMaxY);
+	newImage->Initialize(path, inputFrameMaxX, inputFrameMaxY);
 	imageStorage.insert(make_pair(key, newImage));
 
 	return newImage;
 }
-
+/*
 Image * ImageManager::Add(std::string key, std::string path)
 {
 	ImgIter tempIter;
@@ -58,7 +58,7 @@ Image * ImageManager::FrameAdd(std::string key, std::string path, int inputFrame
 
 	return newImage;
 }
-
+*/
 Image * ImageManager::Find(std::string key)
 {
 	ImgIter tempIter;

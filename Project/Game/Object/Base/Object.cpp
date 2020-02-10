@@ -1,9 +1,10 @@
 #include "stdafx.h"
-#include "ObjectBase.h"
+#include "Object.h"
 #include "./System/D2D/Matrix.h"
 
-ObjectBase::ObjectBase(D2D1_POINT_2F pos, D2D1_POINT_2F size, float rotation)
+Object::Object(std::string inputName, D2D1_POINT_2F pos, D2D1_POINT_2F size, float rotation = 0.f)
 {
+	name = inputName;
 	transform = new Matrix(pos, size, rotation);
 	rect = D2D1::RectF(
 		pos.x - size.x / 2.f, 
@@ -12,19 +13,23 @@ ObjectBase::ObjectBase(D2D1_POINT_2F pos, D2D1_POINT_2F size, float rotation)
 		pos.y + size.y / 2.f);
 }
 
-ObjectBase::~ObjectBase()
+Object::~Object()
 {
 }
 
-void ObjectBase::Initialize()
+void Object::Initialize()
 {
 }
 
-void ObjectBase::Update()
+void Object::Release()
 {
 }
 
-void ObjectBase::Render()
+void Object::Update()
+{
+}
+
+void Object::Render()
 {
 	if (RENDER.IsDebugMode())
 	{
