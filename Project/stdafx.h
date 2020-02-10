@@ -6,14 +6,17 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
-#define _USE_MATH_DEFINES
-#include <math.h>
-#include <string>
-#include <assert.h>
+
+
 
 /* STL */
 #include <vector>
 #include <unordered_map>
+#define _USE_MATH_DEFINES
+#include <math.h>
+#include <string>
+#include <assert.h>
+#include <functional>
 
 /* D2D Library, Headers */
 #pragma comment(lib, "d2d1.lib")
@@ -109,6 +112,9 @@ void ClassName::Delete()					\
 /* Define */
 static const std::string _ResourcePath = "../_Resource/";
 #define RESOURCEPATH "../_Resource/"
+
+typedef D2D1_POINT_2U D2DPOINTU;
+typedef D2D1_POINT_2F D2DPOINTF;
 
 
 /* Singleton Headers */

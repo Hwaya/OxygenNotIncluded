@@ -7,7 +7,7 @@ private:
 	TileInfo info;
 
 public:
-	TileNode(std::string name, D2D1_POINT_2F pos, D2D1_POINT_2F size, float rotation);
+	TileNode(std::string name, D2D1_POINT_2F pos, D2D1_POINT_2F size, float rotation= 0.f);
 	virtual ~TileNode();
 
 	virtual void Initialize();
