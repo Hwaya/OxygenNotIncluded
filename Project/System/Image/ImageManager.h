@@ -20,4 +20,4 @@ private:
 	typedef std::unordered_map<std::string, Image*>::iterator ImgIter;
 };
 
-#define IMAGEMANGER ImageManager::Get()
+#define IMAGE ImageManager::Get()

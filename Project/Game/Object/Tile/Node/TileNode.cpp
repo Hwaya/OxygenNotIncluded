@@ -13,6 +13,9 @@ TileNode::~TileNode()
 
 void TileNode::Initialize()
 {
+	/*AddCallBack("Extract", [&]() {
+		ProcessExtract();
+	});*/
 }
 
 void TileNode::Release()
@@ -24,5 +27,9 @@ void TileNode::Update()
 }
 
 void TileNode::Render()
+{
+}
+
+void TileNode::ProcessExtract()
 {
 }

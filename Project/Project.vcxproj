@@ -154,6 +154,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Game\Object\Tile\TileInfo.h" />
+    <ClInclude Include="Game\Scene\Base\SceneBase.h" />
+    <ClInclude Include="Game\Scene\SceneManager.h" />
+    <ClInclude Include="System\Message\MessageData.h" />
+    <ClInclude Include="System\Message\MessageComponent.h" />
     <ClInclude Include="System\Main\Main.h" />
     <ClInclude Include="Game\Object\Base\Object.h" />
     <ClInclude Include="System\Image\Node\Image.h" />
@@ -168,6 +172,10 @@
     <ClInclude Include="Game\Object\Tile\TileManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Scene\Base\SceneBase.cpp" />
+    <ClCompile Include="Game\Scene\SceneManager.cpp" />
+    <ClCompile Include="System\Message\MessageData.cpp" />
+    <ClCompile Include="System\Message\MessageComponent.cpp" />
     <ClCompile Include="System\Main\Main.cpp" />
     <ClCompile Include="Game\Object\Base\Object.cpp" />
     <ClCompile Include="System\Image\Node\Image.cpp" />

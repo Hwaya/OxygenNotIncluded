@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Main.h"
 #include "./Game/Object/Base/Object.h"
+#include "./Game/Scene/Base/SceneBase.h"
 
 Bedrock::Bedrock()
 {
@@ -13,7 +14,11 @@ Bedrock::~Bedrock()
 
 HRESULT Bedrock::Initialize()
 {
-	IMAGEMANAGER.Add("Test", _ResourcePath + "Test/Test.png");
+	IMAGE.Add("Test", _ResourcePath + "Test/Test.png");
+
+	SCENEMANAGER.AddScene("TestScene", new SceneBase());
+	SCENEMANAGER.SwapScene("TestScene");
+
 	return S_OK;
 }
 
@@ -27,5 +32,5 @@ void Bedrock::Update()
 
 void Bedrock::Render()
 {
-	IMAGEMANAGER.Find("Test")->Render(100, 100, 100, 100, 1);
+	IMAGE.Find("Test")->Render(100, 100, 100, 100, 1);
 }

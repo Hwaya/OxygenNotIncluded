@@ -15,6 +15,8 @@ public:
 	virtual void Update();
 	virtual void Render();
 
+	virtual void ProcessExtract();
+
 	AttributeType& GetAttribute() { return info.attribute; }
 	float& GetPollution() { return info.pollution; }
 	bool& IsSolid() { return info.isSolid; }

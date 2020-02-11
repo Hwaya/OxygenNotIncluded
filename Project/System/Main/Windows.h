@@ -6,9 +6,11 @@ void SingletonCreate()
 {
 	Renderer::Create();
 	ImageManager::Create();
+	SceneManager::Create();
 }
 void SingletonInitialize()
 {
 	RENDER.Initialize();
-	IMAGEMANAGER.Initialize();
+	IMAGE.Initialize();
+	SCENEMANAGER.Initialize();
 }

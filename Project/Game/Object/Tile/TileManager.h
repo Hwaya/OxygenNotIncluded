@@ -5,13 +5,11 @@ class TileNode;
 
 class TileManager
 {
-public:
 	static POINT mapSize;
 	static D2D1_POINT_2F tileSize;
 	static D2D1_POINT_2F pivotPos;
 
 	static void SetMapInfo(POINT tileMax, D2D1_POINT_2F size, D2D1_POINT_2F mapPivot);
-
 public:
 	TileManager();
 	~TileManager();
@@ -36,7 +34,7 @@ public:
 	D2DPOINTF GetPivotPos() { return pivotPos; }
 
 private:
-	std::vector<TileNode*> mapTiles;
+	std::vector<TileNode*> tileStorage;
 	typedef std::vector<TileNode*>::iterator VecIter;
 
 	void ReleaseMap();

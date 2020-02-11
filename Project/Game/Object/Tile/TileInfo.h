@@ -37,6 +37,7 @@ enum AttributeType
 enum GasType
 {
 	GasStart = 0,
+	GasNone,
 	GasOxygen,
 	GaspollutedOxtgen,
 	GasCarbonDioxide,
@@ -46,6 +47,7 @@ enum GasType
 enum FluidType
 {
 	FluidStart = 0,
+	FluidNone,
 	FluidWater,
 	FluidPollutedWater,
 	FluidEnd

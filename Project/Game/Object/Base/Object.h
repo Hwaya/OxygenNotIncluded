@@ -1,7 +1,8 @@
 #pragma once
+#include "./System/Message/MessageComponent.h"
 
 class Matrix;
-class Object
+class Object : public MessageComponent
 {
 protected:
 	std::string name;

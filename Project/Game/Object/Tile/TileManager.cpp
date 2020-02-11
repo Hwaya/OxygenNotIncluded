@@ -51,7 +51,7 @@ void TileManager::CreateMap()
 
 		TileNode* newTile = new TileNode(tempName,D2D1::Point2F(x,y),defaultTileSize);
 
-		mapTiles.push_back(newTile);
+		tileStorage.push_back(newTile);
 	}
 }
 
@@ -75,7 +75,7 @@ int TileManager::LoadMapData(std::vector<std::string> input)
 
 TileNode * TileManager::Tile(int x, int y)
 {
-	return nullptr;
+	return tileStorage[y * mapSize.x + x];
 }
 
 void TileManager::ReleaseMap()
