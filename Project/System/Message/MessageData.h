@@ -1,15 +1,6 @@
 #pragma once
 #include "./Game/Object/Tile/TileInfo.h"
 
-enum ProcessType
-{
-	ProcessBegin = 0,
-	ProcessNone,
-	ProcessAdd,
-	ProcessSubstract,
-	ProcessEnd
-};
-
 enum DirectionType
 {
 	DirectionBegin = 0,
@@ -27,10 +18,14 @@ public:
 	MessageData();
 	~MessageData();
 
-	ProcessType process;
 	DirectionType direction;
+	float processTime;
+
+	float polution;
 
 	std::unordered_map <GasType, float> mapGas;
+	typedef std::unordered_map<GasType, float>::iterator GasIter;
 	std::unordered_map <FluidType, float> mapFluid;
+	typedef std::unordered_map<FluidType, float>::iterator FluidIter;
 };
 
