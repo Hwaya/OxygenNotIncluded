@@ -1,11 +1,11 @@
 #pragma once
-class Bedrock
+class Main
 {
 private:
 
 public:
-	Bedrock();
-	~Bedrock();
+	Main();
+	~Main();
 
 	HRESULT Initialize();
 	void Release();

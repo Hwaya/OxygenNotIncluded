@@ -20,7 +20,6 @@ public:
 
 	DirectionType direction;
 	float processTime;
-
 	float polution;
 
 	std::unordered_map <GasType, float> mapGas;

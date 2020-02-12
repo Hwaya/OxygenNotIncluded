@@ -1,32 +1,35 @@
 #pragma once
+
+typedef struct imageInfo
+{
+	std::string path;
+	float width;
+	float height;
+	int frameMaxX;
+	int frameMaxY;
+	float frameWidth;
+	float frameHeight;
+
+	ID2D1Bitmap* D2DBitmap;
+
+	imageInfo()
+	{
+		path = "";
+		width = 0.f;
+		height = 0.f;
+		frameMaxX = 0;
+		frameMaxY = 0;
+		frameWidth = 0.f;
+		frameHeight = 0.f;
+	}
+};
+
 class Image
 {
 	friend class ImageManager;
 
 private:
-	typedef struct imageInfo
-	{
-		std::string path;
-		float width;
-		float height;
-		int frameMaxX;
-		int frameMaxY;
-		float frameWidth;
-		float frameHeight;
 
-		ID2D1Bitmap* D2DBitmap;
-
-		imageInfo()
-		{
-			path = "";
-			width = 0.f;
-			height = 0.f;
-			frameMaxX = 0;
-			frameMaxY = 0;
-			frameWidth = 0.f;
-			frameHeight = 0.f;
-		}
-	};
 	
 	imageInfo info;
 	

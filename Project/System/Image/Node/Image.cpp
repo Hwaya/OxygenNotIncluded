@@ -91,7 +91,7 @@ void Image::Render(float x, float y, float sizeX, float sizeY, float alpha, floa
 		::D2D1_RECT_F renderArea = D2D1::RectF(left, top, right, bottom);
 
 		/* Convert Radian to Degree */
-		float tempDegree = radian * 180 / M_PI;
+		float tempDegree = radian * 180 / (float)M_PI;
 		D2D1::Matrix3x2F tempRotateMatrix = D2D1::Matrix3x2F::Rotation(tempDegree, D2D1::Point2F(x, y));
 
 		::D2D1_RECT_F cropArea = D2D1::RectF(info.frameWidth*frameX, info.frameHeight*frameY, info.frameWidth*(frameX + 1), info.frameHeight * (frameY + 1));

@@ -46,6 +46,35 @@ void TileNode::Update()
 
 void TileNode::Render()
 {
+	Object::Render();
+
+	if (info.isSolid)
+	{
+		switch (info.solidType)
+		{
+		case SolidDirt:
+			IMAGE.Find("Solid_Dirt")->Render(
+				transform->GetPosition().x, transform->GetPosition().y,
+				transform->GetScale().x, transform->GetScale().y);
+			break;
+		case SolidRock:
+			IMAGE.Find("Solid_Rock")->Render(
+				transform->GetPosition().x, transform->GetPosition().y,
+				transform->GetScale().x, transform->GetScale().y);
+			break;
+		case SolidMetal:
+			IMAGE.Find("Solid_Metal")->Render(
+				transform->GetPosition().x, transform->GetPosition().y,
+				transform->GetScale().x, transform->GetScale().y);
+			break;
+		case SolidStructure:
+			break;
+		}
+	}
+	else
+	{
+
+	}
 }
 
 void TileNode::ProcessExtract()

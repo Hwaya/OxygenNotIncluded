@@ -153,9 +153,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Scene\GameScene.h" />
     <ClInclude Include="Game\Object\Tile\TileInfo.h" />
     <ClInclude Include="Game\Scene\Base\SceneBase.h" />
     <ClInclude Include="Game\Scene\SceneManager.h" />
+    <ClInclude Include="Game\Object\ObjectManager.h" />
     <ClInclude Include="System\Message\MessageData.h" />
     <ClInclude Include="System\Message\MessageComponent.h" />
     <ClInclude Include="System\Main\Main.h" />
@@ -172,8 +174,10 @@
     <ClInclude Include="Game\Object\Tile\TileManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Scene\GameScene.cpp" />
     <ClCompile Include="Game\Scene\Base\SceneBase.cpp" />
     <ClCompile Include="Game\Scene\SceneManager.cpp" />
+    <ClCompile Include="Game\Object\ObjectManager.cpp" />
     <ClCompile Include="System\Message\MessageData.cpp" />
     <ClCompile Include="System\Message\MessageComponent.cpp" />
     <ClCompile Include="System\Main\Main.cpp" />

@@ -36,7 +36,7 @@ void Renderer::DrawLine(float x, float y, float dx, float dy, D2D1_COLOR_F color
 
 void Renderer:: DrawRectangle(D2D1_RECT_F rect, D2D1_COLOR_F color, float thikness, float radian)
 {
-	float tempDegree = radian * 180 / M_PI;
+	float tempDegree = radian * 180 / (float)M_PI;
 	D2D1::Matrix3x2F tempRotateMatrix = D2D1::Matrix3x2F::Rotation(tempDegree, D2D1::Point2F(
 		(rect.right + rect.left) / 2.f, (rect.top + rect.bottom) / 2.f));
 
@@ -49,7 +49,7 @@ void Renderer:: DrawRectangle(D2D1_RECT_F rect, D2D1_COLOR_F color, float thikne
 
 void Renderer::DrawRectangle(float x, float y, float sizeX, float sizeY, D2D1_COLOR_F color, float thikness, float radian)
 {
-	float tempDegree = radian * 180 / M_PI;
+	float tempDegree = radian * 180 / (float)M_PI;
 	D2D1::Matrix3x2F tempRotateMatrix = D2D1::Matrix3x2F::Rotation(tempDegree, D2D1::Point2F(x, y));
 
 	D2DRenderTarget->SetTransform(tempRotateMatrix);
@@ -60,7 +60,7 @@ void Renderer::DrawRectangle(float x, float y, float sizeX, float sizeY, D2D1_CO
 
 void Renderer::DrawElipse(D2D1_RECT_F rect, D2D1_COLOR_F color, float thikness, float radian)
 {
-	float tempDegree = radian * 180 / M_PI;
+	float tempDegree = radian * 180 / (float)M_PI;
 	D2D1::Matrix3x2F tempRotateMatrix = D2D1::Matrix3x2F::Rotation(tempDegree, D2D1::Point2F(
 		(rect.right + rect.left) / 2.f, (rect.top + rect.bottom) / 2.f));
 
@@ -73,7 +73,7 @@ void Renderer::DrawElipse(D2D1_RECT_F rect, D2D1_COLOR_F color, float thikness, 
 
 void Renderer::DrawElipse(float x, float y, float sizeX, float sizeY, D2D1_COLOR_F color, float thikness, float radian)
 {
-	float tempDegree = radian * 180 / M_PI;
+	float tempDegree = radian * 180 / (float)M_PI;
 	D2D1::Matrix3x2F tempRotateMatrix = D2D1::Matrix3x2F::Rotation(tempDegree, D2D1::Point2F(x, y));
 
 	D2DRenderTarget->SetTransform(tempRotateMatrix);

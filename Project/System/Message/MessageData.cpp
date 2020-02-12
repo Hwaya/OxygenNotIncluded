@@ -4,7 +4,6 @@
 
 MessageData::MessageData()
 {	
-	process = ProcessNone;
 	direction = DirectionNone;
 
 	for (int i = GasStart; i != GasEnd; ++i)

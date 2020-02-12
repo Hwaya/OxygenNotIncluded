@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Object.h"
-#include "./System/D2D/Matrix.h"
 
 Object::Object(std::string inputName, D2D1_POINT_2F pos, D2D1_POINT_2F size, float rotation = 0.f)
 {

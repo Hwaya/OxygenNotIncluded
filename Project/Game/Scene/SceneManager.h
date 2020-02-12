@@ -5,6 +5,7 @@ class SceneBase;
 class SceneManager
 {
 	SINGLETONHEADER(SceneManager)
+public:
 	static SceneBase* currentScene;
 	static SceneBase* GetCurrentScene();
 private:

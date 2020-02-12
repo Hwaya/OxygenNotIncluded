@@ -1,16 +1,20 @@
 #pragma once
-class SceneBase
+#include "Base/SceneBase.h"
+
+class TileManager;
+
+class GameScene : public SceneBase
 {
 private:
-
+	TileManager* tile;
 public:
-	SceneBase();
-	~SceneBase();
+	GameScene();
+	~GameScene();
 
 	virtual void Initialize();
 	virtual void Release();
 	virtual void Update();
 	virtual void Render();
-	
 	virtual void ImageLoad();
 };
+

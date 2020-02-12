@@ -5,6 +5,7 @@ class TileNode;
 
 class TileManager
 {
+public:
 	static POINT mapSize;
 	static D2D1_POINT_2F tileSize;
 	static D2D1_POINT_2F pivotPos;
@@ -44,7 +45,6 @@ private:
 		ReleaseMap();
 		mapSize = input;
 		CreateMap();
-
 	}
 	void SetTileSize(D2DPOINTF input)
 	{

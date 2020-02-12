@@ -57,7 +57,8 @@ enum SolidType
 {
 	SolidStart = 0,
 	SolidNone,
-	SolideStone,
+	SolidDirt,
+	SolidRock,
 	SolidMetal,
 	SolidStructure,
 	SolidEnd

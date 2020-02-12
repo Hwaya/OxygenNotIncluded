@@ -36,6 +36,12 @@ void TileManager::Update()
 
 void TileManager::Render()
 {
+	VecIter iter = tileStorage.begin(), end = tileStorage.end();
+
+	for (; iter != end; ++iter)
+	{
+		(*iter)->Render();
+	}
 }
 
 void TileManager::CreateMap()

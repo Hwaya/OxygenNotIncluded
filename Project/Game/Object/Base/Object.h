@@ -1,5 +1,6 @@
 #pragma once
 #include "./System/Message/MessageComponent.h"
+#include "./System/D2D/Matrix.h"
 
 class Matrix;
 class Object : public MessageComponent
@@ -22,7 +23,7 @@ public:
 	virtual void Release();
 	virtual void Update();
 	virtual void Render();
-
+	
 	const std::string& GetName() { return name; }
 	Matrix* GetTransform() { return transform; }
 	D2D1_RECT_F GetRect() { return rect; }

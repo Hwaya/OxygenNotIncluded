@@ -24,3 +24,7 @@ void SceneBase::Update()
 void SceneBase::Render()
 {
 }
+
+void SceneBase::ImageLoad()
+{
+}

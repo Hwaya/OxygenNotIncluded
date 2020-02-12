@@ -20,6 +20,7 @@ SceneBase* SceneManager::AddScene(std::string key, SceneBase * scene)
 	MapIter finder = mapScene.find(key);
 	if (finder == mapScene.end())
 	{
+		scene->Initialize();
 		mapScene.insert(make_pair(key, scene));
 		return mapScene[key];
 	}
@@ -45,9 +46,17 @@ SceneBase* SceneManager::FindScene(std::string key)
 void SceneManager::DeleteScene(std::string key)
 {
 	MapIter finder = mapScene.find(key);
-
+	if (finder != mapScene.end())
+	{
+		mapScene.erase(finder);
+	}
 }
 
 void SceneManager::SwapScene(std::string key)
 {
+	MapIter finder = mapScene.find(key);
+	if (finder != mapScene.end())
+	{
+		currentScene = finder->second;
+	}
 }
