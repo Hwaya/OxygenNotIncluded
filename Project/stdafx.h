@@ -65,7 +65,6 @@ inline void SafeDeleteArray(T* &p)
 }
 
 /* Singleton Macro */
-
 #define LOCK_COPY(ClassName)				\
 private:									\
 	ClassName(const ClassName&);			\
@@ -114,7 +113,6 @@ typedef D2D1_POINT_2F D2DPOINTF;
 typedef D2D1_RECT_F D2DRECTF;
 
 static const int _DefaultPoolSize = 100;
-
 
 /* Singleton Headers */
 #include "./System/D2D/Renderer.h"

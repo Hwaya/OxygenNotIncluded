@@ -2,6 +2,8 @@
 
 class SceneBase;
 
+SceneBase* SceneManager::currentScene = nullptr;
+
 class SceneManager
 {
 	SINGLETONHEADER(SceneManager)

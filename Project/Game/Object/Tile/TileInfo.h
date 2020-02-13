@@ -67,6 +67,7 @@ enum SolidType
 struct TileInfo
 {
 	AttributeType attribute;
+	float life;
 	float pollution;
 	bool isSolid;
 	SolidType solidType;
@@ -76,6 +77,7 @@ struct TileInfo
 	TileInfo() 
 	{
 		attribute = AttributeNone;
+		life = 0.f;
 		pollution = 0.f;
 		isSolid = false;
 		solidType = SolidNone;

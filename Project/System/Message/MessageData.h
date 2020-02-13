@@ -19,6 +19,7 @@ public:
 	~MessageData();
 
 	DirectionType direction;
+	float damage;
 	float processTime;
 	float polution;
 

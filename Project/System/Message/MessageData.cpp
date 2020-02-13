@@ -5,6 +5,10 @@
 MessageData::MessageData()
 {	
 	direction = DirectionNone;
+	damage = 0.f;
+	processTime = 0.f;
+	polution = 0.f;
+	
 
 	for (int i = GasStart; i != GasEnd; ++i)
 	{

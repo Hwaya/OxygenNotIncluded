@@ -15,7 +15,8 @@ TileNode::~TileNode()
 
 void TileNode::Initialize()
 {
-	AddCallBack("SetData", [&](MessageData msg) {
+	AddCallBack("SetData", [&](MessageData msg) 
+	{
 		MessageData::GasIter giter = msg.mapGas.begin();
 		for (; giter != msg.mapGas.end(); ++giter)
 		{
@@ -34,6 +35,13 @@ void TileNode::Initialize()
 		}
 		info.pollution += msg.polution;
 	});
+	AddCallBack("Extract", [&](MessageData msg)
+	{
+		if (info.isSolid)
+		{
+			info.life -= msg.damage;
+		}
+	});
 }
 
 void TileNode::Release()
@@ -42,6 +50,10 @@ void TileNode::Release()
 
 void TileNode::Update()
 {
+	if (info.life < 0)
+	{
+
+	}
 }
 
 void TileNode::Render()
@@ -77,6 +89,8 @@ void TileNode::Render()
 	}
 }
 
-void TileNode::ProcessExtract()
+void TileNode::ProcessDestroy()
 {
+	//¹Ù´Ú¿¡ ÅÛ±ò¸®´Â°Å.
 }
+

@@ -15,7 +15,7 @@ public:
 	virtual void Update();
 	virtual void Render();
 
-	virtual void ProcessExtract();
+	virtual void ProcessDestroy();
 
 	AttributeType& GetAttribute() { return info.attribute; }
 	float& GetPollution() { return info.pollution; }
