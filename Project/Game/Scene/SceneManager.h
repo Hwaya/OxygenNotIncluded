@@ -2,7 +2,7 @@
 
 class SceneBase;
 
-SceneBase* SceneManager::currentScene = nullptr;
+//SceneBase* SceneManager::currentScene = nullptr;
 
 class SceneManager
 {
