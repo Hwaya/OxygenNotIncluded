@@ -106,19 +106,26 @@ void ClassName::Delete()					\
 	
 /* Define */
 static const std::string _ResourcePath = "../_Resource/";
-#define RESOURCEPATH "../_Resource/"
+static const std::string _TilePath = "Tile/";
+static const std::string _SolidPath = "Solid/";
 
 typedef D2D1_POINT_2U D2DPOINTU;
 typedef D2D1_POINT_2F D2DPOINTF;
 typedef D2D1_RECT_F D2DRECTF;
+
+#define D2DPOINT(num1, num2)  D2D1::Point2U((num1), (num2))
+#define D2DPOINTF(num1, num2)  D2D1::Point2F((num1), (num2))
 
 static const int _DefaultPoolSize = 100;
 
 /* Singleton Headers */
 #include "./System/D2D/Renderer.h"
 #include "./System/Image/ImageManager.h"
+#include "./System/Device/Keyboard.h"
+#include "./System/Device/Mouse.h"
 #include "./Game/Scene/SceneManager.h"
 #include "./Game/Object/ObjectManager.h"
+
 
 /* Root Class Header */
 #include "./Game/Object/Base/Object.h"
