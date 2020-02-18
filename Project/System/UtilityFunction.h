@@ -52,7 +52,10 @@ private:									\
 ClassName* ClassName::instance = 0;			\
 ClassName& ClassName::Get()					\
 {											\
-	return *instance;						\
+	if (instance != 0)						\
+	{										\
+		return *instance;					\
+	}										\
 }											\
 void ClassName::Create()					\
 {											\

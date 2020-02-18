@@ -12,6 +12,7 @@ void Keyboard::Initialize()
 
 void Keyboard::Update()
 {
+	int a = 0;
 	memcpy(keyOldState, keyState, sizeof(keyOldState));
 
 	ZeroMemory(keyState, sizeof(keyState));

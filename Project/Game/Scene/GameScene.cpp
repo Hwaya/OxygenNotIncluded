@@ -45,33 +45,6 @@ void GameScene::Render()
 	IMAGE.Find("Background")->Render(WINSIZEX / 2.f, WINSIZEY / 2.f, 3000, 3000);
 
 	OBJECT.Render();
-
-	D2DPOINTF cameraLoca = CAMERA.GetView().GetPosition();
-	D2DPOINTF mouseLoca = D2DPOINTF(MOUSE.GetPosition().x, MOUSE.GetPosition().y);
-
-	RENDER.Text(
-		std::to_string(mouseLoca.x) + "," + std::to_string(mouseLoca.y),
-		"±¼¸²",
-		MakeRect(mouseLoca.x, mouseLoca.y + 30, 500, 100),
-		MakeColor(200, 100, 100),
-		0.f
-	);
-
-	RENDER.Text(
-		std::to_string(cameraLoca.x) + "," + std::to_string(cameraLoca.y),
-		"±¼¸²",
-		MakeRect(mouseLoca.x, mouseLoca.y + 80, 500, 100),
-		MakeColor(100, 200, 100)
-	);
-
-	RENDER.Text(
-		std::to_string(mouseLoca.x) + "," + std::to_string(mouseLoca.y),
-		"±¼¸²",
-		MakeRect(100, 100, 500, 100)
-	);
-	RENDER.Text(
-		std::to_string(MOUSE.GetWheelValue()), "±¼¸²", MakeRect(mouseLoca.x, mouseLoca.y + 100, 500, 100),
-		MakeColor(100, 100, 100), 0.f);
 }
 
 void GameScene::ImageLoad()

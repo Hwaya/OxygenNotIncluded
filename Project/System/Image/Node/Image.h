@@ -46,6 +46,8 @@ public:
 	void CreateImage();
 
 	void Render(float x, float y, float sizeX, float sizeY, float alpha = 1.f, float radian = 0.f, int frameX = 0, int frameY = 0);
+
+	ID2D1Bitmap* GetBitmap() { return info.D2DBitmap; }
 	/*
 	void Render(float x, float y, float sizeX, float sizeY, float alpha);
 	void Render(float x, float y, float sizeX, float sizeY, float radian, float alpha);

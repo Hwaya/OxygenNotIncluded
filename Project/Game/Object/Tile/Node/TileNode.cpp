@@ -88,7 +88,7 @@ void TileNode::Render()
 
 	}
 
-	Object::Render();
+	
 	Matrix renderMat = RENDER.RenderSet(*transform, true, true);
 	D2DRECTF tempRc = MakeRect(
 		renderMat.GetPosition().x,
@@ -100,6 +100,8 @@ void TileNode::Render()
 	{
 		RENDER.DrawRectangle(tempRc, D2D1::ColorF(250, 100, 100), 5);
 	}
+
+	Object::Render();
 }
 
 void TileNode::ProcessDestroy()

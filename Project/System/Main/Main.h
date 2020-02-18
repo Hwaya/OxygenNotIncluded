@@ -2,7 +2,9 @@
 class Main
 {
 private:
+	bool debugMode;
 
+	int fx, fy;
 public:
 	Main();
 	~Main();

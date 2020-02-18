@@ -30,6 +30,8 @@ void Object::Update()
 
 void Object::Render()
 {
+	bool a = RENDER.IsDebugMode();
+	int b = 0;
 	if (RENDER.IsDebugMode())
 	{
 		Matrix temp = RENDER.RenderSet(*transform, true, true);

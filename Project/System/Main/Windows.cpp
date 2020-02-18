@@ -80,6 +80,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 		}
 		else
 		{
+			KEYBOARD.Update();
 			_main.Update();
 
 			RENDER.BeginDraw();
@@ -135,7 +136,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
 	_hInstance = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   _hWnd = CreateWindowW(
+	SingletonCreate();
+	
+	_hWnd = CreateWindowW(
 	   szWindowClass, 
 	   WINNAME, 
 	   WS_OVERLAPPEDWINDOW,
@@ -153,7 +156,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
       return FALSE;
    }
 
-   SingletonCreate();
+   
    SingletonInitialize();
 
    SetWindowPos(_hWnd, HWND_BOTTOM, WINPOSX, WINPOSY, WINSIZEX, WINSIZEY,NULL);
@@ -177,7 +180,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	MOUSE.InputProc(message, wParam, lParam);
-	KEYBOARD.Update();
     switch (message)
     {
 	case WM_CREATE:

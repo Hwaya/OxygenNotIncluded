@@ -1,6 +1,6 @@
 #pragma once
 
-#define KEYMAX 256
+#define KEYMAX 255
 
 enum KEYSTATE
 {
