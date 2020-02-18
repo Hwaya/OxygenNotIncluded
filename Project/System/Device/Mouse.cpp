@@ -7,6 +7,7 @@ void Mouse::Initialize()
 {
 	position = D2DPOINTF(0.f, 0.f);
 	wheelValue = oldWheelValue = 0.f;
+	wheel = 0.f;
 }
 
 LRESULT Mouse::InputProc(UINT msg, WPARAM wParam, LPARAM lParam)
@@ -22,9 +23,21 @@ LRESULT Mouse::InputProc(UINT msg, WPARAM wParam, LPARAM lParam)
 		short inputWheelValue = (short)HIWORD(wParam);
 
 		oldWheelValue = wheelValue;
+
 		wheelValue += (float)inputWheelValue;
 
-		//ÁÜÀÎ ÁÜ¾Æ¿ô
+		if (wheelValue != oldWheelValue)
+		{
+			wheel += (_zoomSpeed * (inputWheelValue / abs(inputWheelValue)));
+			if (wheel > _maxZoom)
+			{
+				wheel = _maxZoom;
+			}
+			else if (wheel < 0)
+			{
+				wheel = 0;
+			}
+		}
 	}
 	return true;
 }

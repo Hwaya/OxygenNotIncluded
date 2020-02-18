@@ -58,8 +58,6 @@ void TileNode::Update()
 
 void TileNode::Render()
 {
-	Object::Render();
-
 	if (info.isSolid)
 	{
 		std::string tempKey;
@@ -77,30 +75,30 @@ void TileNode::Render()
 		case SolidStructure:
 			break;
 		}
-		Matrix renderMat = *transform * CAMERA.GetInvertView();
-		/*
-		IMAGE.Find(tempKey)->Render(
-			transform->GetPosition().x, 
-			transform->GetPosition().y,
-			transform->GetScale().x, 
-			transform->GetScale().y);
-			*/
-			
-		Matrix temp = CAMERA.GetView();
-			renderMat.GetPosition().x;
-			renderMat.GetPosition().y;
-			transform->GetScale().x;
-			transform->GetScale().y;
+		Matrix renderMat = RENDER.RenderSet(*transform, true, true);
 
 		IMAGE.Find(tempKey)->Render(
 			renderMat.GetPosition().x,
 			renderMat.GetPosition().y,
-			transform->GetScale().x,
-			transform->GetScale().y);
+			renderMat.GetScale().x,
+			renderMat.GetScale().y);
 	}
 	else
 	{
 
+	}
+
+	Object::Render();
+	Matrix renderMat = RENDER.RenderSet(*transform, true, true);
+	D2DRECTF tempRc = MakeRect(
+		renderMat.GetPosition().x,
+		renderMat.GetPosition().y,
+		renderMat.GetScale().x,
+		renderMat.GetScale().y
+	);
+	if (PointInRect(MOUSE.GetPosition().x, MOUSE.GetPosition().y, tempRc))
+	{
+		RENDER.DrawRectangle(tempRc, D2D1::ColorF(250, 100, 100), 5);
 	}
 }
 

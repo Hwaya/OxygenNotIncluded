@@ -156,6 +156,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    SingletonCreate();
    SingletonInitialize();
 
+   SetWindowPos(_hWnd, HWND_BOTTOM, WINPOSX, WINPOSY, WINSIZEX, WINSIZEY,NULL);
+   
    ShowWindow(_hWnd, nCmdShow);
    UpdateWindow(_hWnd);
 

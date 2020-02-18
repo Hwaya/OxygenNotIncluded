@@ -24,6 +24,7 @@ HRESULT Main::Initialize()
 
 void Main::Release()
 {
+	SCENE->Release();
 }
 
 void Main::Update()
@@ -33,5 +34,6 @@ void Main::Update()
 
 void Main::Render()
 {
+	RENDER.DebugMode(true);
 	SCENE->Render();
 }

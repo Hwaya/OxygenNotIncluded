@@ -69,6 +69,9 @@ void GameScene::Render()
 		"±¼¸²",
 		MakeRect(100, 100, 500, 100)
 	);
+	RENDER.Text(
+		std::to_string(MOUSE.GetWheelValue()), "±¼¸²", MakeRect(mouseLoca.x, mouseLoca.y + 100, 500, 100),
+		MakeColor(100, 100, 100), 0.f);
 }
 
 void GameScene::ImageLoad()

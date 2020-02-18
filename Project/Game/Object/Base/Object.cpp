@@ -32,6 +32,13 @@ void Object::Render()
 {
 	if (RENDER.IsDebugMode())
 	{
-		RENDER.DrawRectangle(rect);
+		Matrix temp = RENDER.RenderSet(*transform, true, true);
+		D2DRECTF rc = MakeRect(
+			temp.GetPosition().x,
+			temp.GetPosition().y,
+			temp.GetScale().x,
+			temp.GetScale().y
+		);
+		RENDER.DrawRectangle(rc);
 	}
 }

@@ -159,6 +159,8 @@
     <ClInclude Include="Game\Scene\Base\SceneBase.h" />
     <ClInclude Include="Game\Scene\SceneManager.h" />
     <ClInclude Include="Game\Object\ObjectManager.h" />
+    <ClInclude Include="System\D2D\D2DFunction.h" />
+    <ClInclude Include="System\Defines.h" />
     <ClInclude Include="System\Device\Mouse.h" />
     <ClInclude Include="System\Device\Keyboard.h" />
     <ClInclude Include="System\Message\MessageData.h" />
@@ -175,6 +177,7 @@
     <ClInclude Include="System\Base\targetver.h" />
     <ClInclude Include="Game\Object\Tile\Node\TileNode.h" />
     <ClInclude Include="Game\Object\Tile\TileManager.h" />
+    <ClInclude Include="System\UtilityFunction.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Camera\Camera.cpp" />

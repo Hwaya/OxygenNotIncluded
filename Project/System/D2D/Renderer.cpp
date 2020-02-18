@@ -8,7 +8,6 @@ void Renderer::Initialize()
 {
 	InitializeD2D();
 	CreateRenderTarget();
-
 	isDebugMode = false;
 }
 
@@ -191,27 +190,30 @@ void Renderer::TextWithInstanceFont(std::string letter, std::string fontName, fl
 	SafeRelease(brush);
 }
 
-void Renderer::RenderSet(Matrix * transform)
+Matrix& Renderer::RenderSet(Matrix& transform, bool relative, bool zoom)
 {
-	Matrix temp;
-	if (transform != nullptr)
+	Matrix result;
+	if (relative)
 	{
-		if (isCameraMode)
-		{
-			temp = *transform * CAMERA.GetView();
-		}
-		else
-		{
-			temp = *transform;
-		}
+		result = transform * CAMERA.GetInvertView();
 	}
 	else
 	{
-		if (isCameraMode)
-		{
-			temp = CAMERA.GetView();
-		}
+		result = transform;
 	}
+	if (zoom)
+	{
+		float zoomRate = MOUSE.GetWheelValue()/_maxZoom;
+		Matrix* temp = new Matrix
+		(
+			{ -(0.f - transform.GetPosition().x) * zoomRate ,
+			-(0.f - transform.GetPosition().y) * zoomRate }, 
+			{ zoomRate + 1,zoomRate + 1}, 
+			0.f
+		);
+		result = result * (*temp);
+	}
+	return result;
 }
 
 void Renderer::InitializeD2D()
