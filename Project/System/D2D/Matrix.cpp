@@ -43,14 +43,14 @@ void Matrix::SetScale(float x)
 void Matrix::SetRotate(float radian)
 {
 	rotation = radian;
-	rotate = D2D1::Matrix3x2F::Rotation((float)radian * (180.0 / (float)M_PI));
+	rotate = D2D1::Matrix3x2F::Rotation((float)radian * (180.f / (float)M_PI));
 	CalculateMatrix();
 }
 
 void Matrix::SetRotate(float radian, float x, float y)
 {
 	rotation = radian;
-	rotate = D2D1::Matrix3x2F::Rotation((float)radian * (180.0 / (float)M_PI), D2D1::Point2F(x, y));
+	rotate = D2D1::Matrix3x2F::Rotation((float)radian * (180.f / (float)M_PI), D2D1::Point2F(x, y));
 	CalculateMatrix();
 }
 

@@ -13,10 +13,10 @@ inline D2D1_RECT_F MakeRect(float x, float y, float width, float height)
 inline RECT& ToRect(D2DRECTF& d2drect)
 {
 	RECT tempRect;
-	tempRect.left = d2drect.left;
-	tempRect.top = d2drect.top;
-	tempRect.right = d2drect.right;
-	tempRect.bottom = d2drect.bottom;
+	tempRect.left = (LONG)d2drect.left;
+	tempRect.top = (LONG)d2drect.top;
+	tempRect.right = (LONG)d2drect.right;
+	tempRect.bottom = (LONG)d2drect.bottom;
 
 	return tempRect;
 }

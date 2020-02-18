@@ -44,6 +44,7 @@ public:
 			}
 			return tempUpCast;
 		}
+		return nullptr;
 	}
 
 	template<typename A>

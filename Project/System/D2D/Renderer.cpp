@@ -47,7 +47,7 @@ void Renderer:: DrawRectangle(D2D1_RECT_F rect, D2D1_COLOR_F color, float thikne
 	SafeRelease(brush);
 }
 
-D2DRECTF& Renderer::DrawRectangle(float x, float y, float sizeX, float sizeY, D2D1_COLOR_F color, float thikness, float radian)
+D2DRECTF Renderer::DrawRectangle(float x, float y, float sizeX, float sizeY, D2D1_COLOR_F color, float thikness, float radian)
 {
 	float tempDegree = radian * 180 / (float)M_PI;
 	D2D1::Matrix3x2F tempRotateMatrix = D2D1::Matrix3x2F::Rotation(tempDegree, D2D1::Point2F(x, y));
@@ -84,7 +84,7 @@ void Renderer::DrawEllipse(D2D1_RECT_F rect, D2D1_COLOR_F color, float thikness,
 	SafeRelease(brush);
 }
 
-D2DELLIPSE& Renderer::DrawEllipse(float x, float y, float sizeX, float sizeY, D2D1_COLOR_F color, float thikness, float radian)
+D2DELLIPSE Renderer::DrawEllipse(float x, float y, float sizeX, float sizeY, D2D1_COLOR_F color, float thikness, float radian)
 {
 	float tempDegree = radian * 180 / (float)M_PI;
 	D2D1::Matrix3x2F tempRotateMatrix = D2D1::Matrix3x2F::Rotation(tempDegree, D2D1::Point2F(x, y));
@@ -190,7 +190,7 @@ void Renderer::TextWithInstanceFont(std::string letter, std::string fontName, fl
 	SafeRelease(brush);
 }
 
-Matrix& Renderer::RenderSet(Matrix& transform, bool relative, bool zoom)
+Matrix Renderer::RenderSet(Matrix& transform, bool relative, bool zoom)
 {
 	Matrix result;
 	if (relative)

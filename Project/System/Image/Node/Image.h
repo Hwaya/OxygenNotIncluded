@@ -1,6 +1,6 @@
 #pragma once
 
-typedef struct imageInfo
+struct imageInfo
 {
 	std::string path;
 	float width;
