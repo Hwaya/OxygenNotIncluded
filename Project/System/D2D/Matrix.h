@@ -12,7 +12,7 @@ private:
 	D2D1_POINT_2F scaleValue;
 
 public:
-	Matrix(D2D1_POINT_2F pos, D2D1_POINT_2F scale = { 1,1 }, float radian = 0.f);
+	Matrix(D2D1_POINT_2F pos = { 0.f, 0.f }, D2D1_POINT_2F scale = { 1.f,1.f }, float radian = 0.f);
 	~Matrix();
 
 	void CalculateMatrix()
@@ -35,5 +35,15 @@ public:
 
 	void SetPosition(float x, float y);
 	void SetPosition(float x);
+
+	Matrix operator *(const Matrix& other);
+
+	Matrix GetInvert()
+	{
+		if (matrix.IsInvertible())
+		{
+
+		}
+	}
 };
 

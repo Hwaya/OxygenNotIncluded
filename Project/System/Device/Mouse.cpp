@@ -26,4 +26,5 @@ LRESULT Mouse::InputProc(UINT msg, WPARAM wParam, LPARAM lParam)
 
 		//¡‹¿Œ ¡‹æ∆øÙ
 	}
+	return true;
 }

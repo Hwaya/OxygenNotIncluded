@@ -62,26 +62,41 @@ void TileNode::Render()
 
 	if (info.isSolid)
 	{
+		std::string tempKey;
 		switch (info.solidType)
 		{
 		case SolidDirt:
-			IMAGE.Find("Solid_Dirt")->Render(
-				transform->GetPosition().x, transform->GetPosition().y,
-				transform->GetScale().x, transform->GetScale().y);
+			tempKey = "Solid_Dirt";
 			break;
 		case SolidRock:
-			IMAGE.Find("Solid_Rock")->Render(
-				transform->GetPosition().x, transform->GetPosition().y,
-				transform->GetScale().x, transform->GetScale().y);
+			tempKey = "Solid_Rock";
 			break;
 		case SolidMetal:
-			IMAGE.Find("Solid_Metal")->Render(
-				transform->GetPosition().x, transform->GetPosition().y,
-				transform->GetScale().x, transform->GetScale().y);
+			tempKey = "Solid_Metal";
 			break;
 		case SolidStructure:
 			break;
 		}
+		Matrix renderMat = *transform * CAMERA.GetInvertView();
+		/*
+		IMAGE.Find(tempKey)->Render(
+			transform->GetPosition().x, 
+			transform->GetPosition().y,
+			transform->GetScale().x, 
+			transform->GetScale().y);
+			*/
+			
+		Matrix temp = CAMERA.GetView();
+			renderMat.GetPosition().x;
+			renderMat.GetPosition().y;
+			transform->GetScale().x;
+			transform->GetScale().y;
+
+		IMAGE.Find(tempKey)->Render(
+			renderMat.GetPosition().x,
+			renderMat.GetPosition().y,
+			transform->GetScale().x,
+			transform->GetScale().y);
 	}
 	else
 	{

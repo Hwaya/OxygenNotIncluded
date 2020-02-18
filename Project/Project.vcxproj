@@ -153,6 +153,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Camera\Camera.h" />
     <ClInclude Include="Game\Scene\GameScene.h" />
     <ClInclude Include="Game\Object\Tile\TileInfo.h" />
     <ClInclude Include="Game\Scene\Base\SceneBase.h" />
@@ -176,6 +177,7 @@
     <ClInclude Include="Game\Object\Tile\TileManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Camera\Camera.cpp" />
     <ClCompile Include="Game\Scene\GameScene.cpp" />
     <ClCompile Include="Game\Scene\Base\SceneBase.cpp" />
     <ClCompile Include="Game\Scene\SceneManager.cpp" />

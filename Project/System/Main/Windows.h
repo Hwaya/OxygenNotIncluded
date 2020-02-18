@@ -8,6 +8,7 @@ void SingletonCreate()
 	ImageManager::Create();
 	Mouse::Create();
 	Keyboard::Create();
+	Camera::Create();
 
 	SceneManager::Create();
 	ObjectManager::Create();
@@ -19,6 +20,7 @@ void SingletonInitialize()
 	IMAGE.Initialize();
 	MOUSE.Initialize();
 	KEYBOARD.Initialize();
+	CAMERA.Initialize();
 
 	SCENEMANAGER.Initialize();
 	OBJECT.Initialize();
