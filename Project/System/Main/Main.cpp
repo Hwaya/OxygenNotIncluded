@@ -109,17 +109,21 @@ void Main::Render()
 	RENDER.GetRenderTarget()->CreateSolidColorBrush(D2D1::ColorF(250.f, 10.f, 10.f), &newBrush);
 	RENDER.GetRenderTarget()->SetTransform(D2D1::Matrix3x2F::Translation(10, 10));
 	RENDER.GetRenderTarget()->DrawGeometry(mp_path_geometry, newBrush, 2.f, 0);
-
+/*
 	ID2D1BitmapBrush* abc;
 
 	fx++;
 	if (fx > 15) fx = 0;
 
 	IMAGE.Find("Test")->Render(100, 100, 100, 100, 1.f, 0.f, fx, 0);
-	ID2D1Bitmap* bbb = IMAGE.Find("Test")->GetBitmap();
+	ID2D1Bitmap* bbb = IMAGE.Find("Solid_Metal")->GetBitmap();
 	bbb->CopyFromRenderTarget(&D2D1::Point2U(100.f, 100.f), RENDER.GetRenderTarget(), &D2D1::RectU(100, 100, 100, 100));
+	bbb->CopyFromBitmap(&D2D1::Point2U(50.f, 100.f), IMAGE.Find("Test")->GetBitmap(), &D2D1::RectU(0, 0, 10, 10));
+
+	RENDER.GetRenderTarget()->CreateBitmap(D2D1::SizeU(100,100),
+
 
 	RENDER.GetRenderTarget()->CreateBitmapBrush(bbb, &abc);
 
-	RENDER.GetRenderTarget()->FillGeometry(mp_path_geometry, abc);
+	RENDER.GetRenderTarget()->FillGeometry(mp_path_geometry, abc);*/
 }
