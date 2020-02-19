@@ -35,7 +35,14 @@ void ObjectManager::Update()
 		VecIter vecIter = (*mapIter).second.begin(), vecEnd = (*mapIter).second.end();
 		for (; vecIter != vecEnd; ++vecIter)
 		{
-			(*vecIter)->Update();
+			Matrix relative = RENDER.RenderSet(*(*vecIter)->GetTransform(), true, true);
+			if (relative.GetPosition().x > -relative.GetScale().x &&
+				relative.GetPosition().y > -relative.GetScale().y &&
+				relative.GetPosition().x < WINSIZEX + relative.GetScale().x &&
+				relative.GetPosition().y < WINSIZEY + relative.GetScale().y)
+			{
+				(*vecIter)->Update();
+			}
 		}
 	}
 }
@@ -48,7 +55,14 @@ void ObjectManager::Render()
 		VecIter vecIter = (*mapIter).second.begin(), vecEnd = (*mapIter).second.end();
 		for (; vecIter != vecEnd; ++vecIter)
 		{
-			(*vecIter)->Render();
+			Matrix relative = RENDER.RenderSet(*(*vecIter)->GetTransform(), true, true);
+			if (relative.GetPosition().x > -relative.GetScale().x &&
+				relative.GetPosition().y > -relative.GetScale().y &&
+				relative.GetPosition().x < WINSIZEX + relative.GetScale().x &&
+				relative.GetPosition().y < WINSIZEY + relative.GetScale().y)
+			{
+				(*vecIter)->Render();
+			}
 		}
 	}
 }

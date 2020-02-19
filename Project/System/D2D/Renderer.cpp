@@ -190,7 +190,7 @@ void Renderer::TextWithInstanceFont(std::string letter, std::string fontName, fl
 	SafeRelease(brush);
 }
 
-Matrix Renderer::RenderSet(Matrix& transform, bool relative, bool zoom)
+Matrix Renderer::RenderSet(Matrix transform, bool relative, bool zoom)
 {
 	Matrix result;
 	if (relative)
@@ -212,6 +212,7 @@ Matrix Renderer::RenderSet(Matrix& transform, bool relative, bool zoom)
 			0.f
 		);
 		result = result * (*temp);
+		SafeDelete(temp);
 	}
 	return result;
 }

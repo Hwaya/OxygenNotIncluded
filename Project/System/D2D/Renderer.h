@@ -55,7 +55,7 @@ public:
 	void TextWithInstanceFont(std::string letter, std::string fontName, float size, D2DRECTF boundary, D2DCOLOR color = D2DCOLORF(0.f,0.f,0.f), float rotate = 0.f);
 
 	/* Camera Set */
-	Matrix RenderSet(Matrix& transform, bool relative = false, bool zoom = false);
+	Matrix RenderSet(Matrix transform, bool relative = false, bool zoom = false);
 
 	/* Debug Mode */
 	void DebugMode(bool input) { isDebugMode = input; }

@@ -54,7 +54,7 @@ void Camera::Update()
 		inverseView.SetPosition(inverseView.GetPosition().x - cameraSpeed, inverseView.GetPosition().y);
 
 	}
-	if (MOUSE.GetPosition().y > WINSIZEY - 50.f)
+	if (MOUSE.GetPosition().y > WINSIZEY - 80.f)
 	{
 		view.SetPosition(view.GetPosition().x, view.GetPosition().y + cameraSpeed);
 		inverseView.SetPosition(inverseView.GetPosition().x, inverseView.GetPosition().y - cameraSpeed);

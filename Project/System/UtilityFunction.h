@@ -94,3 +94,20 @@ inline float GetAngle(float sx, float sy, float dx, float dy)
 {
 	return atan2f(dy - sy, dx - sx);
 }
+inline D2D1_POINT_2F IndexToPos(const POINT index, const D2D1_POINT_2F tileSize, const D2D1_POINT_2F pivotPos)
+{
+	float x, y;
+	x = index.x * tileSize.x + pivotPos.x;
+	y = index.y * tileSize.y + pivotPos.y;
+
+	return D2D1::Point2F(x, y);
+}
+
+inline POINT PosToIndex(const D2D1_POINT_2F pos, const D2D1_POINT_2F tileSize, const D2D1_POINT_2F pivotPos)
+{
+	float x, y;
+	x = ((pos.x - pivotPos.x) / tileSize.x);
+	y = ((pos.y - pivotPos.y) / tileSize.y);
+
+	return { (int)x, (int)y };
+}

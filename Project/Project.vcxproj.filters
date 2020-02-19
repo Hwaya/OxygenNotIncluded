@@ -90,6 +90,15 @@
     <ClInclude Include="System\UtilityFunction.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Object\Clone\Clone.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Object\Clone\State\Base\StateBase.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Object\Clone\State\Ability\StateAbility.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="System\Base\Project.ico">
@@ -157,6 +166,15 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Game\Camera\Camera.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Object\Clone\Clone.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Object\Clone\State\Base\StateBase.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Object\Clone\State\Ability\StateAbility.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

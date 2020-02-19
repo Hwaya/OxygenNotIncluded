@@ -51,7 +51,7 @@ void TileManager::CreateMap()
 
 		//TileNode* newTile = new TileNode(tempName,D2D1::Point2F(x,y),defaultTileSize);
 
-		TileNode* newTile = static_cast<TileNode*>(OBJECT.NewObject<TileNode>(tempName, D2D1::Point2F(x, y), defaultTileSize));
+		TileNode* newTile = static_cast<TileNode*>(OBJECT.NewObject<TileNode>(tempName, D2D1::Point2F(x, y), tileSize));
 
 		tileStorage.push_back(newTile);
 	}
