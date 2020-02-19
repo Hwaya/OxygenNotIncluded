@@ -1,7 +1,8 @@
 #pragma once
 #include "Base/SceneBase.h"
-
-class TileManager;
+#include "./Game/Object/Tile/TileManager.h"
+#include "./Game/Object/Clone/Clone.h"
+#include "./Game/Object/Tile/Node/TileNode.h"
 
 class GameScene : public SceneBase
 {

@@ -42,10 +42,63 @@ static const int _DefaultPoolSize = 100;
 /* Default Clone Status */
 static const float _o2Rate = 10.f;
 static const float _co2Rate = 10.f;
-static const float _peeRate = 5.f;
+static const int _peeRate = 1;
 static const float _structSpeed = 5.f;
 static const float _miningSpeed = 5.f;
 static const float _speed = 5.f;
+static const int _stateSlot = 5;
+enum StateKind
+{
+	StateBegin = 0,
+	StateActivity,
+	StatePositive,
+	StateNegative,
+	StateBuff1,
+	StateBuff2,
+	StateBuff3,
+	StateBuff4,
+	StateBuff5,
+	StateEnd
+};
+enum Activity
+{
+	ActivityBegin = 0,
+	ActivityIdle,
+	ActivityMove,
+	ActivityStruct,
+	ActivitySleep,
+	ActivityPee,
+	ActivityEat,
+	ActivityEnd
+};
+enum Positive
+{
+	PositiveBegin = 0,
+	PositiveNone,
+	PositiveO2,
+	PositiveMining,
+	PositiveSpeed,
+	PositiveEnd
+};
+enum Negative
+{
+	NegativeBegin = 0,
+	NegativeNone,
+	NegativeO2,
+	NegativePee,
+	NegativeSpeed,
+	NegativeEnd
+};
+enum Buff
+{
+	BuffBegin = 0,
+	BuffNone,
+	BuffDirty,
+	BuffCold,
+	BuffHot,
+	BuffSick,
+	BuffEnd
+};
 
 
 

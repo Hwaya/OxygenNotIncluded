@@ -16,15 +16,13 @@ Main::~Main()
 HRESULT Main::Initialize()
 {
 	debugMode = false;
-	
 	LoadResources();
-	CAMERA.Initialize();
-
 	return S_OK;
 }
 
 void Main::Release()
 {
+	//CAMERA.Release();
 	SCENE->Release();
 }
 
@@ -52,7 +50,7 @@ void Main::Render()
 	{
 		D2DPOINTF cameraLoca = CAMERA.GetView().GetPosition();
 		D2DPOINTF mouseLoca = D2DPOINTF(MOUSE.GetPosition().x, MOUSE.GetPosition().y);
-		
+
 		RENDER.Text(
 			"Debug Mode",
 			"±¼¸²20",
@@ -65,7 +63,7 @@ void Main::Render()
 		RENDER.Text(
 			std::to_string(mouseLoca.x) + "," + std::to_string(mouseLoca.y),
 			"±¼¸²20",
-			MakeRect(mouseLoca.x + 150 , mouseLoca.y + 100, 500, 100),
+			MakeRect(mouseLoca.x + 150, mouseLoca.y + 100, 500, 100),
 			MakeColor(200, 100, 100),
 			0.f
 		);
@@ -73,19 +71,16 @@ void Main::Render()
 		RENDER.Text(
 			std::to_string(cameraLoca.x) + "," + std::to_string(cameraLoca.y),
 			"±¼¸²20",
-			MakeRect(mouseLoca.x + 150 , mouseLoca.y + 150, 500, 100),
+			MakeRect(mouseLoca.x + 150, mouseLoca.y + 150, 500, 100),
 			MakeColor(100, 200, 100)
 		);
 		//Wheel Value
 		RENDER.Text(
-			std::to_string(MOUSE.GetWheelValue()), 
-			"±¼¸²20", 
-			MakeRect(mouseLoca.x + 150 , mouseLoca.y + 200, 500, 100),
+			std::to_string(MOUSE.GetWheelValue()),
+			"±¼¸²20",
+			MakeRect(mouseLoca.x + 150, mouseLoca.y + 200, 500, 100),
 			MakeColor(100, 100, 100), 0.f);
 	}
-
-
-
 }
 
 void Main::LoadResources()

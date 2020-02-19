@@ -1,15 +1,19 @@
 #pragma once
 
+#include "./Game/Object/Clone/State/Base/StateBase.h"
+
 class Clone;
 
 class StateAbilityNone : public StateBase
 {
-	StateAbilityNone(Clone* target);
-	~StateAbilityNone();
+public:
+	StateAbilityNone(Object* target);
+	virtual ~StateAbilityNone();
 
-	virtual void Begin() = 0;
-	virtual void Excute() = 0;
-	virtual void End() = 0;
+	virtual void Begin();
+	virtual void Excute();
+	virtual void Render();
+	virtual void End();
 };
 
 /* ---------- Positive ---------- */
@@ -17,34 +21,40 @@ class StateAbilityNone : public StateBase
 /* Oxygen */
 class StateAbilityPositiveOxygen : public StateBase
 {
+public:
 	StateAbilityPositiveOxygen(Object* target);
-	~StateAbilityPositiveOxygen();
+	virtual ~StateAbilityPositiveOxygen();
 
-	virtual void Begin() = 0;
-	virtual void Excute() = 0;
-	virtual void End() = 0;
+	virtual void Begin();
+	virtual void Excute();
+	virtual void Render();
+	virtual void End();
 };
 
 /* Mining */
 class StateAbilityPositiveMining : public StateBase
 {
+public:
 	StateAbilityPositiveMining(Object* target);
-	~StateAbilityPositiveMining();
+	virtual ~StateAbilityPositiveMining();
 
-	virtual void Begin() = 0;
-	virtual void Excute() = 0;
-	virtual void End() = 0;
+	virtual void Begin();
+	virtual void Excute();
+	virtual void Render();
+	virtual void End();
 };
 
 /* Speed */
 class StateAbilityPositiveSpeed : public StateBase
 {
+public:
 	StateAbilityPositiveSpeed(Object* target);
-	~StateAbilityPositiveSpeed();
+	virtual ~StateAbilityPositiveSpeed();
 
-	virtual void Begin() = 0;
-	virtual void Excute() = 0;
-	virtual void End() = 0;
+	virtual void Begin();
+	virtual void Excute();
+	virtual void Render();
+	virtual void End();
 };
 
 
@@ -53,32 +63,38 @@ class StateAbilityPositiveSpeed : public StateBase
 /* Oxygen */
 class StateAbilityNegativeOxygen : public StateBase
 {
+public:
 	StateAbilityNegativeOxygen(Object* target);
-	~StateAbilityNegativeOxygen();
+	virtual ~StateAbilityNegativeOxygen();
 
-	virtual void Begin() = 0;
-	virtual void Excute() = 0;
-	virtual void End() = 0;
+	virtual void Begin();
+	virtual void Excute();
+	virtual void Render();
+	virtual void End();
 };
 
 /* Pee */
 class StateAbilityNegativePee : public StateBase
 {
+public:
 	StateAbilityNegativePee(Object* target);
-	~StateAbilityNegativePee();
+	virtual ~StateAbilityNegativePee();
 
-	virtual void Begin() = 0;
-	virtual void Excute() = 0;
-	virtual void End() = 0;
+	virtual void Begin();
+	virtual void Excute();
+	virtual void Render();
+	virtual void End();
 };
 
 /* Speed */
 class StateAbilityNegativeSpeed : public StateBase
 {
+public:
 	StateAbilityNegativeSpeed(Object* target);
-	~StateAbilityNegativeSpeed();
+	virtual ~StateAbilityNegativeSpeed();
 
-	virtual void Begin() = 0;
-	virtual void Excute() = 0;
-	virtual void End() = 0;
+	virtual void Begin();
+	virtual void Excute();
+	virtual void Render();
+	virtual void End();
 };

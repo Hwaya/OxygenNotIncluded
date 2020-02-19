@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "MessageComponent.h"
-#include "MessageData.h"
+#include "./Game/Message/Base/MessageData.h"
 
 MessageComponent::MessageComponent()
 {

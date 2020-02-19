@@ -71,8 +71,5 @@ void ObjectManager::MakeNewVector(std::string name, Object * input)
 {
 	ObjectVector newStorage;
 	newStorage.push_back(input);
-	objectMap.clear();
-
-	
 	objectMap.insert(make_pair(name, newStorage));
 }

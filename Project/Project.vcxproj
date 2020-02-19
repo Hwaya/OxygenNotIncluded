@@ -153,6 +153,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Component\AstarComponent.h" />
+    <ClInclude Include="Game\GameData.h" />
     <ClInclude Include="Game\Object\Clone\Clone.h" />
     <ClInclude Include="Game\Camera\Camera.h" />
     <ClInclude Include="Game\Scene\GameScene.h" />
@@ -162,12 +164,14 @@
     <ClInclude Include="Game\Object\ObjectManager.h" />
     <ClInclude Include="Game\Object\Clone\State\Base\StateBase.h" />
     <ClInclude Include="Game\Object\Clone\State\Ability\StateAbility.h" />
+    <ClInclude Include="Game\Object\Clone\State\StateManager.h" />
+    <ClInclude Include="Game\Message\StateMessage.h" />
     <ClInclude Include="System\D2D\D2DFunction.h" />
     <ClInclude Include="System\Defines.h" />
     <ClInclude Include="System\Device\Mouse.h" />
     <ClInclude Include="System\Device\Keyboard.h" />
-    <ClInclude Include="System\Message\MessageData.h" />
-    <ClInclude Include="System\Message\MessageComponent.h" />
+    <ClInclude Include="Game\Message\Base\MessageData.h" />
+    <ClInclude Include="Game\Component\MessageComponent.h" />
     <ClInclude Include="System\Main\Main.h" />
     <ClInclude Include="Game\Object\Base\Object.h" />
     <ClInclude Include="System\Image\Node\Image.h" />
@@ -181,8 +185,11 @@
     <ClInclude Include="Game\Object\Tile\Node\TileNode.h" />
     <ClInclude Include="Game\Object\Tile\TileManager.h" />
     <ClInclude Include="System\UtilityFunction.h" />
+    <ClInclude Include="Game\Message\TileMessage.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Component\AstarComponent.cpp" />
+    <ClCompile Include="Game\GameData.cpp" />
     <ClCompile Include="Game\Object\Clone\Clone.cpp" />
     <ClCompile Include="Game\Camera\Camera.cpp" />
     <ClCompile Include="Game\Scene\GameScene.cpp" />
@@ -191,10 +198,12 @@
     <ClCompile Include="Game\Object\ObjectManager.cpp" />
     <ClCompile Include="Game\Object\Clone\State\Base\StateBase.cpp" />
     <ClCompile Include="Game\Object\Clone\State\Ability\StateAbility.cpp" />
+    <ClCompile Include="Game\Object\Clone\State\StateManager.cpp" />
+    <ClCompile Include="Game\Message\StateMessage.cpp" />
     <ClCompile Include="System\Device\Mouse.cpp" />
     <ClCompile Include="System\Device\Keyboard.cpp" />
-    <ClCompile Include="System\Message\MessageData.cpp" />
-    <ClCompile Include="System\Message\MessageComponent.cpp" />
+    <ClCompile Include="Game\Message\Base\MessageData.cpp" />
+    <ClCompile Include="Game\Component\MessageComponent.cpp" />
     <ClCompile Include="System\Main\Main.cpp" />
     <ClCompile Include="Game\Object\Base\Object.cpp" />
     <ClCompile Include="System\Image\Node\Image.cpp" />
@@ -204,6 +213,7 @@
     <ClCompile Include="System\Main\Windows.cpp" />
     <ClCompile Include="Game\Object\Tile\Node\TileNode.cpp" />
     <ClCompile Include="Game\Object\Tile\TileManager.cpp" />
+    <ClCompile Include="Game\Message\TileMessage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="System\Base\Project.rc" />

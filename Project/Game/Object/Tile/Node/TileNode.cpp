@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "TileNode.h"
-#include "./System/Message/MessageData.h"
+#include "./Game/Message/Base/MessageData.h"
+#include "./Game/Message/TileMessage.h"
 
 class MessageData;
 
@@ -18,30 +19,48 @@ void TileNode::Initialize()
 {
 	AddCallBack("SetData", [&](MessageData msg) 
 	{
-		MessageData::GasIter giter = msg.mapGas.begin();
-		for (; giter != msg.mapGas.end(); ++giter)
+		TileMessage* tempMsg = static_cast<TileMessage*>(&msg);
+
+		info.direction = tempMsg->msgInfo.direction;
+		info.attribute = tempMsg->msgInfo.attribute;
+
+		info.life += tempMsg->msgInfo.life;
+		info.pollution += tempMsg->msgInfo.pollution;
+		info.temperature += tempMsg->msgInfo.temperature;
+
+		info.isSolid = tempMsg->msgInfo.isSolid;
+		info.solidType = tempMsg->msgInfo.solidType;
+
+		TileInfo::GasIter gasIter = tempMsg->msgInfo.mapGas.begin(),
+			gasEnd = tempMsg->msgInfo.mapGas.end();
+		for (; gasIter != gasEnd; ++gasIter)
 		{
-			if (giter->second != 0.f)
+			if (gasIter->second != 0.f)
 			{
-				info.mapGas[giter->first] += giter->second;
+				info.mapGas[gasIter->first] += gasIter->second;
 			}
 		}
-		MessageData::FluidIter fiter = msg.mapFluid.begin();
-		for (; fiter != msg.mapFluid.end(); ++fiter)
+
+		TileInfo::FluidIter fluidIter = tempMsg->msgInfo.mapFluid.begin(),
+			fluidEnd = tempMsg->msgInfo.mapFluid.end();
+
+		for (; fluidIter != fluidEnd; ++fluidIter)
 		{
-			if (fiter->second != 0.f)
+			if (fluidIter->second != 0.f)
 			{
-				info.mapFluid[fiter->first] += fiter->second;
+				info.mapFluid[fluidIter->first] += fluidIter->second;
 			}
 		}
-		info.pollution += msg.polution;
+		SafeDelete(tempMsg);
 	});
 	AddCallBack("Extract", [&](MessageData msg)
 	{
+		TileMessage* tempMsg = static_cast<TileMessage*>(&msg);
 		if (info.isSolid)
 		{
-			info.life -= msg.damage;
+			info.life -= tempMsg->damage;
 		}
+		SafeDelete(tempMsg);
 	});
 }
 

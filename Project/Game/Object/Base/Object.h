@@ -1,5 +1,5 @@
 #pragma once
-#include "./System/Message/MessageComponent.h"
+#include "./Game/Component/MessageComponent.h"
 #include "./System/D2D/Matrix.h"
 
 class Matrix;

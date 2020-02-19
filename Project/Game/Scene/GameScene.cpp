@@ -1,14 +1,8 @@
 #include "stdafx.h"
 #include "GameScene.h"
-#include "./Game/Object/Tile/TileManager.h"
-#include "./Game/Object/Tile/Node/TileNode.h"
-
-class TileNode;
 
 GameScene::GameScene()
 {
-	ImageLoad();
-	tile = new TileManager;
 }
 
 GameScene::~GameScene()
@@ -18,7 +12,10 @@ GameScene::~GameScene()
 void GameScene::Initialize()
 {
 	OBJECT.Initialize();
+	ImageLoad();
 
+	/* Tile Initialize */
+	tile = new TileManager;
 	tile->SetMapInfo({ 30,30 }, D2DPOINTF(100.f, 100.f), D2DPOINTF(0.f, 0.f));
 	tile->CreateMap();
 
@@ -38,6 +35,13 @@ void GameScene::Initialize()
 			tile->Tile(j, i)->SetSolid(SolidNone);
 		}
 	}
+
+	/* TestClone */
+	OBJECT.NewObject<Clone>(
+		"TestClone",
+		IndexToPos(2,2, D2DPOINTF(100.f, 100.f), D2DPOINTF(0.f, 0.f)),
+		D2DPOINTF(50.f, 50.f)
+		);
 }
 
 void GameScene::Release()

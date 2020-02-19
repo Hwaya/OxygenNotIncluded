@@ -1,17 +1,18 @@
 #pragma once
 
-class Clone;
+class Object;
 
 class StateBase
 {
-private:
-	Clone* owner;
+protected:
+	Object* owner;
 public:
-	StateBase(Clone* target);
+	StateBase(Object* target);
 	virtual ~StateBase();
 
 	virtual void Begin() = 0;
 	virtual void Excute() = 0;
+	virtual void Render() = 0;
 	virtual void End() = 0;
 };
 

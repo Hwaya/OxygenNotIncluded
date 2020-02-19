@@ -17,6 +17,8 @@ public:
 
 	void MakeNewVector(std::string name, Object* input);
 
+	std::unordered_map<std::string, std::vector<Object*>>& GetMap() { return objectMap; }
+
 	template<typename A>
 	Object* NewObject(std::string inputName, D2DPOINTF pos, D2DPOINTF size, float rotation = 0.f)
 	{
