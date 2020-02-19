@@ -1,10 +1,13 @@
 #pragma once
+
+class Clone;
+
 class StateBase
 {
 private:
-	Object* owner;
+	Clone* owner;
 public:
-	StateBase(Object* target);
+	StateBase(Clone* target);
 	virtual ~StateBase();
 
 	virtual void Begin() = 0;

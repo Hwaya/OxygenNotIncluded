@@ -39,6 +39,16 @@ static const D2D1_POINT_2F defaultTileSize = { 50.f, 50.f };
 /* Not Using */
 static const int _DefaultPoolSize = 100;
 
+/* Default Clone Status */
+static const float _o2Rate = 10.f;
+static const float _co2Rate = 10.f;
+static const float _peeRate = 5.f;
+static const float _structSpeed = 5.f;
+static const float _miningSpeed = 5.f;
+static const float _speed = 5.f;
+
+
+
 //  direct2d geometry 테스트 하던 것
 //	/*Geometry Test*/
 //	// 선분 조각들로 구성된 경로 기하를 생성.

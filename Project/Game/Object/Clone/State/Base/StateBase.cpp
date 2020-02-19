@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "StateBase.h"
+#include "./Game/Object/Clone/Clone.h"
 
-StateBase::StateBase(Object * target)
+StateBase::StateBase(Clone * target)
 	:owner(target)
 {
 	Begin();

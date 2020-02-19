@@ -10,12 +10,12 @@ struct CloneInfo
 	float speed;
 	CloneInfo()
 	{
-		oxEfficiency = 0.f;
-		dcEfficiency = 0.f;
-		peeEfficiency = 0.f;
-		structEfficiency = 0.f;
-		miningEfficiency = 0.f;
-		speed = 0.f;
+		oxEfficiency = _o2Rate;
+		dcEfficiency = _co2Rate;
+		peeEfficiency = _peeRate;
+		structEfficiency = _structSpeed;
+		miningEfficiency = _miningSpeed;
+		speed = _speed;
 	}
 };
 
