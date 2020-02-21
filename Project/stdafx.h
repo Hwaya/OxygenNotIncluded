@@ -47,4 +47,8 @@
 #include "./System/D2D/Renderer.h"
 #include "./System/Image/ImageManager.h"
 #include "./Game/Scene/SceneManager.h"
+
+/* General Header */
+#include "./Game/Scene/Base/SceneBase.h"
 #include "./Game/Object/ObjectManager.h"
+#include "./Game/Object/Tile/TileManager.h"

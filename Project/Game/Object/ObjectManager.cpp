@@ -2,7 +2,13 @@
 #include "ObjectManager.h"
 #include "./Game/Object/Base/Object.h"
 
-SINGLETONCPP(ObjectManager)
+ObjectManager::ObjectManager()
+{
+}
+
+ObjectManager::~ObjectManager()
+{
+}
 
 void ObjectManager::Initialize()
 {
@@ -12,18 +18,16 @@ void ObjectManager::Initialize()
 void ObjectManager::Release()
 {
 	MapIter mapIter = objectMap.begin();
-	for (; mapIter != objectMap.end(); ++mapIter) 
+	for (; mapIter != objectMap.end(); mapIter++)
 	{
 		VecIter vecIter= (*mapIter).second.begin();
-		for (; vecIter != (*mapIter).second.end(); ++vecIter)
+		for (; vecIter != (*mapIter).second.end(); vecIter++)
 		{
 			(*vecIter)->Release();
 			SafeDelete(*vecIter);
-			(*mapIter).second.erase(vecIter);
-			--vecIter;
+			vecIter = (*mapIter).second.erase(vecIter);
 		}
-		objectMap.erase(mapIter);
-		--mapIter;
+		mapIter = objectMap.erase(mapIter);
 	}
 }
 

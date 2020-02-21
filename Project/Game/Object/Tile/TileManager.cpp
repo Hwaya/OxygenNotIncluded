@@ -50,9 +50,9 @@ void TileManager::CreateMap()
 		std::string tempName = "TileNode" + std::to_string(i);
 
 		//TileNode* newTile = new TileNode(tempName,D2D1::Point2F(x,y),defaultTileSize);
-
-		TileNode* newTile = static_cast<TileNode*>(OBJECT.NewObject<TileNode>(tempName, D2D1::Point2F(x, y), tileSize));
-
+		
+		TileNode* newTile = static_cast<TileNode*>(SCENE->OBJECT->NewObject<TileNode>(tempName, D2D1::Point2F(x, y), tileSize));
+		
 		tileStorage.push_back(newTile);
 	}
 }

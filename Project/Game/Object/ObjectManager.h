@@ -2,7 +2,6 @@
 class Object;
 class ObjectManager
 {
-	SINGLETONHEADER(ObjectManager)
 private:
 	typedef std::unordered_map<std::string, std::vector<Object*>>::iterator MapIter;
 	typedef std::vector<Object*> ObjectVector;
@@ -10,6 +9,9 @@ private:
 	std::unordered_map<std::string, std::vector<Object*>> objectMap;
 
 public:
+	ObjectManager();
+	~ObjectManager();
+
 	void Initialize();
 	void Release();
 	void Update();
@@ -86,5 +88,3 @@ public:
 		}
 	}
 };
-
-#define OBJECT ObjectManager::Get()

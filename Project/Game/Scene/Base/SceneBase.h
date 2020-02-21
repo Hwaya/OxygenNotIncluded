@@ -1,7 +1,17 @@
 #pragma once
+
+class TileManager;
+class ObjectManager;
+
 class SceneBase
 {
-private:
+protected:
+	
+public:
+	static TileManager* tileManager;
+	static ObjectManager* objectManager;
+	static TileManager* GetTileManager();
+	static ObjectManager* GetObjectManager();
 
 public:
 	SceneBase();
@@ -13,4 +23,9 @@ public:
 	virtual void Render();
 	
 	virtual void ImageLoad();
+
+
 };
+
+#define TILE SceneBase::GetTileManager()
+#define OBJECT SceneBase::GetObjectManager()

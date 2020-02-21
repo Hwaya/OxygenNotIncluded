@@ -11,7 +11,6 @@ void SingletonCreate()
 	Camera::Create();
 
 	SceneManager::Create();
-	ObjectManager::Create();
 }
 
 void SingletonInitialize()
@@ -23,5 +22,4 @@ void SingletonInitialize()
 	CAMERA.Initialize();
 
 	SCENEMANAGER.Initialize();
-	OBJECT.Initialize();
 }
