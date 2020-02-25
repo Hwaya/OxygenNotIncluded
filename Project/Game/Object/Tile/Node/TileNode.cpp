@@ -126,13 +126,18 @@ void TileNode::Render()
 	);
 	if (PointInRect(MOUSE.GetPosition().x, MOUSE.GetPosition().y, tempRc))
 	{
-		RENDER.DrawRectangle(tempRc, D2D1::ColorF(250, 100, 100), 5);
+		IMAGE.Find("TileIconChoose")->Render(
+			renderMat.GetPosition().x,
+			renderMat.GetPosition().y,
+			renderMat.GetScale().x,
+			renderMat.GetScale().y);
 	}
 
 	Object::Render();
 
 	if (RENDER.IsDebugMode() && PointInRect(MOUSE.GetPosition().x, MOUSE.GetPosition().y, tempRc))
 	{
+		RENDER.DrawRectangle(tempRc, D2D1::ColorF(250, 100, 100), 5);
 		if (!debugToggle) 
 		{
 			for (int i = GasStart; i != GasEnd; ++i)

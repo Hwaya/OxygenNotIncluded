@@ -112,7 +112,52 @@ void GameScene::Update()
 			newInput = true;
 			oldPoint = MOUSE.GetPosition();
 		}
-		selectRect = MakeRectWithPoint(oldPoint.x, oldPoint.y, MOUSE.GetPosition().x, MOUSE.GetPosition().y);
+		float minX, maxX, minY, maxY;
+		if (oldPoint.x < MOUSE.GetPosition().x)
+		{
+			minX = oldPoint.x;
+			maxX = MOUSE.GetPosition().x;
+		}
+		else
+		{
+			minX = MOUSE.GetPosition().x;
+			maxX = oldPoint.x;
+		}
+		if (oldPoint.y < MOUSE.GetPosition().y)
+		{
+			minY = oldPoint.y;
+			maxY = MOUSE.GetPosition().y;
+		}
+		else
+		{
+			minY = MOUSE.GetPosition().y;
+			maxY = oldPoint.y;
+		}
+		
+		POINT tempLT = PosToIndex(D2DPOINTF(minX, minY), TILE->GetTileSize(), TILE->GetPivotPos());
+		POINT tempRB = PosToIndex(D2DPOINTF(maxX, maxY), TILE->GetTileSize(), TILE->GetPivotPos());
+
+		Matrix renderMat = RENDER.RenderSet(*TILE->Tile(tempLT.x, tempLT.y)->GetTransform(), true, true);
+		D2DRECTF tempLTRC = MakeRect(
+			renderMat.GetPosition().x,
+			renderMat.GetPosition().y,
+			renderMat.GetScale().x,
+			renderMat.GetScale().y
+		);
+		renderMat = RENDER.RenderSet(*TILE->Tile(tempRB.x, tempRB.y)->GetTransform(), true, true);
+		D2DRECTF tempRBRC = MakeRect(
+			renderMat.GetPosition().x,
+			renderMat.GetPosition().y,
+			renderMat.GetScale().x,
+			renderMat.GetScale().y
+		);
+
+		selectRect = MakeRectWithPoint(
+			tempLTRC.left,
+			tempLTRC.top,
+			tempRBRC.right,
+			tempRBRC.bottom
+		);
 	}
 
 	if (KEYBOARD.Up(MK_LBUTTON))
