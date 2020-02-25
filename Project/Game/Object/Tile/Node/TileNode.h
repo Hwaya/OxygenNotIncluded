@@ -5,10 +5,10 @@ class TileNode : public Object
 {
 private:
 	TileInfo info;
-
+	std::string orderIcon;
 	bool debugToggle;
 public:
-	TileNode(std::string name, D2D1_POINT_2F pos, D2D1_POINT_2F size, float rotation= 0.f);
+	TileNode(std::string name, D2D1_POINT_2F pos, D2D1_POINT_2F size, bool ui,  float rotation);
 	virtual ~TileNode();
 
 	virtual void Initialize();

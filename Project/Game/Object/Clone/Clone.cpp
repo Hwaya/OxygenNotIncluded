@@ -2,8 +2,8 @@
 #include "Clone.h"
 
 
-Clone::Clone(std::string name, D2DPOINTF pos, D2DPOINTF size, float rotation)
-	:Object(name,pos,size,rotation)
+Clone::Clone(std::string name, D2DPOINTF pos, D2DPOINTF size, bool ui = false, float rotation = 0.f)
+	:Object(name,pos,size,ui, rotation)
 {
 }
 

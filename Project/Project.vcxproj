@@ -186,6 +186,8 @@
     <ClInclude Include="Game\Object\Tile\TileManager.h" />
     <ClInclude Include="System\UtilityFunction.h" />
     <ClInclude Include="Game\Message\TileMessage.h" />
+    <ClInclude Include="Game\UI\UIButton.h" />
+    <ClInclude Include="Game\UI\Base\UIBase.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\Component\AstarComponent.cpp" />
@@ -214,6 +216,8 @@
     <ClCompile Include="Game\Object\Tile\Node\TileNode.cpp" />
     <ClCompile Include="Game\Object\Tile\TileManager.cpp" />
     <ClCompile Include="Game\Message\TileMessage.cpp" />
+    <ClCompile Include="Game\UI\UIButton.cpp" />
+    <ClCompile Include="Game\UI\Base\UIBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="System\Base\Project.rc" />

@@ -1,57 +1,6 @@
 #pragma once
 #include "stdafx.h"
 
-/* info */
-
-enum AttributeType
-{
-	AttributeStart = 0,
-	AttributeNone,
-	AttributeLock,
-	AttributeEnd
-};
-
-enum GasType
-{
-	GasStart = 0,
-	GasNone,
-	GasOxygen,
-	GaspollutedOxtgen,
-	GasCarbonDioxide,
-	GasEnd
-};
-
-enum FluidType
-{
-	FluidStart = 0,
-	FluidNone,
-	FluidWater,
-	FluidPollutedWater,
-	FluidEnd
-};
-
-enum SolidType
-{
-	SolidStart = 0,
-	SolidNone,
-	SolidDirt,
-	SolidRock,
-	SolidMetal,
-	SolidStructure,
-	SolidEnd
-};
-
-enum DirectionType
-{
-	DirectionBegin = 0,
-	DirectionNone,
-	DirectionLeft,
-	DirectionUp,
-	DirectionRight,
-	DirectionDown,
-	DirectionEnd
-};
-
 struct TileInfo
 {
 	DirectionType direction;

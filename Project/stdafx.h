@@ -52,3 +52,6 @@
 #include "./Game/Scene/Base/SceneBase.h"
 #include "./Game/Object/ObjectManager.h"
 #include "./Game/Object/Tile/TileManager.h"
+#include "./Game/Component/AstarComponent.h"
+#include "./Game/GameData.h"
+#include "./Game/Message/Base/MessageData.h"

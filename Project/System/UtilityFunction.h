@@ -111,3 +111,8 @@ inline POINT PosToIndex(const D2D1_POINT_2F pos, const D2D1_POINT_2F tileSize, c
 
 	return { (int)x, (int)y };
 }
+
+inline bool ComparePoint(const POINT caseA, const POINT caseB)
+{
+	return caseA.x == caseB.x && caseA.y == caseB.y;
+}

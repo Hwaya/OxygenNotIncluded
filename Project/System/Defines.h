@@ -5,8 +5,8 @@
 extern HWND _hWnd;
 extern HINSTANCE _hInstance;
 #define WINNAME L"Oxygen Not Included"
-#define WINSIZEX 1024
-#define WINSIZEY 768
+#define WINSIZEX 1280
+#define WINSIZEY 720
 #define WINPOSX 100
 #define WINPOSY 100
 
@@ -47,6 +47,60 @@ static const float _structSpeed = 5.f;
 static const float _miningSpeed = 5.f;
 static const float _speed = 5.f;
 static const int _stateSlot = 5;
+
+/* Tile Enums */
+
+enum AttributeType
+{
+	AttributeStart = 0,
+	AttributeNone,
+	AttributeLock,
+	AttributeEnd
+};
+
+enum GasType
+{
+	GasStart = 0,
+	GasNone,
+	GasOxygen,
+	GaspollutedOxtgen,
+	GasCarbonDioxide,
+	GasEnd
+};
+
+enum FluidType
+{
+	FluidStart = 0,
+	FluidNone,
+	FluidWater,
+	FluidPollutedWater,
+	FluidEnd
+};
+
+enum SolidType
+{
+	SolidStart = 0,
+	SolidNone,
+	SolidDirt,
+	SolidRock,
+	SolidMetal,
+	SolidStructure,
+	SolidEnd
+};
+
+enum DirectionType
+{
+	DirectionBegin = 0,
+	DirectionNone,
+	DirectionLeft,
+	DirectionUp,
+	DirectionRight,
+	DirectionDown,
+	DirectionEnd
+};
+
+
+/* State Enums */
 enum StateKind
 {
 	StateBegin = 0,
@@ -100,6 +154,49 @@ enum Buff
 	BuffEnd
 };
 
+/* Game Mode */
+enum PickMode
+{
+	PickBegin = 0,
+	PickNone,
+	PickDig,
+	PickCancel,
+	PickDeconstruct,
+	PickStruct,
+	PickEnd
+};
+
+/* UI Type */
+enum UIType
+{
+	UITypeBegin = 0,
+	UITypeButton,
+	UITypeWindow,
+	UITypeEnd
+};
+
+struct CloneInfo
+{
+	float o2Efficiency;
+	float co2Efficiency;
+	int peeEfficiency;
+	float structEfficiency;
+	float miningEfficiency;
+	float speed;
+	CloneInfo()
+	{
+		Initialize();
+	}
+	void Initialize()
+	{
+		o2Efficiency = _o2Rate;
+		co2Efficiency = _co2Rate;
+		peeEfficiency = _peeRate;
+		structEfficiency = _structSpeed;
+		miningEfficiency = _miningSpeed;
+		speed = _speed;
+	}
+};
 
 
 //  direct2d geometry 테스트 하던 것

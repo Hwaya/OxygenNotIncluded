@@ -114,6 +114,12 @@
     <ClInclude Include="Game\Component\MessageComponent.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Game\UI\UIButton.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\UI\Base\UIBase.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="System\Base\Project.ico">
@@ -205,6 +211,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Game\Component\MessageComponent.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\UI\UIButton.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\UI\Base\UIBase.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

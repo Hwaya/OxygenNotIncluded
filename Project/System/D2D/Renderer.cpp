@@ -183,7 +183,7 @@ void Renderer::TextWithInstanceFont(std::string letter, std::string fontName, fl
 		tempLetter,
 		wcslen(tempLetter),
 		textFormat,
-		D2D1::RectF(0, 0, 600.0f, 500.0f),
+		boundary,
 		brush
 	);
 	D2DRenderTarget->SetTransform(D2D1::Matrix3x2F::Identity());

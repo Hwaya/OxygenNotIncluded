@@ -15,8 +15,10 @@ protected:
 
 	float alpha;
 	float lifeTime;
+
+	bool isUI;
 public:
-	Object(std::string inputName, D2D1_POINT_2F pos, D2D1_POINT_2F size, float rotation);
+	Object(std::string inputName, D2D1_POINT_2F pos, D2D1_POINT_2F size, bool ui, float rotation);
 	virtual ~Object();
 
 	virtual void Initialize();
@@ -31,11 +33,13 @@ public:
 	bool& GetShow() { return isShow; }
 	float& GetAlpha() { return alpha; }
 	float& GetLifeTime() { return lifeTime; }
+	bool IsUI() { return isUI; }
 
 	void SetActive(bool input) { isActive = input; }
 	void SetAlpha(float input)
 	{
 		input > 0.f ? (input > 1.f ? alpha = 1.f : alpha = input) : alpha = 0.f;
 	}
+	void SetUI(bool input) { isUI = input; }
 };
 

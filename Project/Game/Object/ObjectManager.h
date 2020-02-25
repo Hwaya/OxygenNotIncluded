@@ -21,10 +21,12 @@ public:
 
 	std::unordered_map<std::string, std::vector<Object*>>& GetMap() { return objectMap; }
 
+	std::vector<Object*> GetArray(std::string arrayKey) { return objectMap[arrayKey]; }
+
 	template<typename A>
-	Object* NewObject(std::string inputName, D2DPOINTF pos, D2DPOINTF size, float rotation = 0.f)
+	Object* NewObject(std::string inputName, D2DPOINTF pos, D2DPOINTF size, bool ui = false, float rotation = 0.f)
 	{
-		A* testCase = new A(inputName, pos, size, rotation);
+		A* testCase = new A(inputName, pos, size, ui, rotation);
 		if (dynamic_cast<Object*>(testCase) != nullptr)
 		{
 			Object* tempUpCast = static_cast<Object*>(testCase);
@@ -86,5 +88,24 @@ public:
 				}
 			}
 		}
+	}
+
+	Object* FindObject(std::string name)
+	{
+		MapIter mapIter = objectMap.begin(), mapEnd = objectMap.end();
+		for (; mapIter != mapEnd; ++mapIter)
+		{
+
+			VecIter vecIter = (*mapIter).second.begin(), vecEnd = (*mapIter).second.end();
+
+			for (; vecIter != vecEnd; ++vecIter)
+			{
+				if ((*vecIter)->GetName() == name)
+				{
+					return *vecIter;
+				}
+			}
+		}
+		return nullptr;
 	}
 };

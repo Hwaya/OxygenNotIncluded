@@ -8,6 +8,7 @@ void Mouse::Initialize()
 	position = D2DPOINTF(0.f, 0.f);
 	wheelValue = oldWheelValue = 0.f;
 	wheel = 50.f;
+	isOnUI = false;
 }
 
 LRESULT Mouse::InputProc(UINT msg, WPARAM wParam, LPARAM lParam)

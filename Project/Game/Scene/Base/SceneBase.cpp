@@ -1,10 +1,11 @@
 #include "stdafx.h"
 #include "SceneBase.h"
-#include "./Game/Object/Tile/TileManager.h"
-#include "./Game/Object/ObjectManager.h"
+
 
 TileManager* SceneBase::tileManager = nullptr;
 ObjectManager* SceneBase::objectManager = nullptr;
+AstarComponent* SceneBase::astar = nullptr;
+GameData* SceneBase::gameData = nullptr;
 
 SceneBase::SceneBase()
 {
@@ -20,6 +21,10 @@ void SceneBase::Initialize()
 	objectManager->Initialize();
 	tileManager = new TileManager;
 	tileManager->Initialize();
+	astar = new AstarComponent;
+	astar->Initialize();
+	gameData = new GameData;
+	//gameData->Initialize();
 }
 
 void SceneBase::Release()
@@ -52,4 +57,14 @@ TileManager * SceneBase::GetTileManager()
 ObjectManager * SceneBase::GetObjectManager()
 {
 	return objectManager;
+}
+
+AstarComponent * SceneBase::GetAstar()
+{
+	return astar;
+}
+
+GameData * SceneBase::GetData()
+{
+	return gameData;
 }

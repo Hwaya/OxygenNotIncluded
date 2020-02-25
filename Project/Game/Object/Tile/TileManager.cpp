@@ -32,6 +32,7 @@ void TileManager::Release()
 
 void TileManager::Update()
 {
+
 }
 
 void TileManager::Render()

@@ -9,6 +9,10 @@ inline D2D1_RECT_F MakeRect(float x, float y, float width, float height)
 {
 	return D2D1::RectF(x - width / 2.f, y - height / 2.f, x + width / 2.f, y + height / 2.f);
 }
+inline D2DRECTF MakeRectWithPoint(float left, float top, float right, float bottom)
+{
+	return D2D1::RectF(left, top, right, bottom);
+}
 
 inline RECT& ToRect(D2DRECTF& d2drect)
 {

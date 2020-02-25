@@ -55,31 +55,31 @@ void Main::Render()
 			"Debug Mode",
 			"±¼¸²20",
 			MakeRect(250, 50, 500, 100),
-			MakeColor(200.f, 100.f, 100.f),
+			MakeColor(1.f, 1.f, 1.f),
 			0.f
 		);
 
 		//Mouse Location
 		RENDER.Text(
-			std::to_string(mouseLoca.x) + "," + std::to_string(mouseLoca.y),
+			"Mouse Loca : " + std::to_string(mouseLoca.x) + "," + std::to_string(mouseLoca.y),
 			"±¼¸²20",
 			MakeRect(mouseLoca.x + 150, mouseLoca.y + 100, 500, 100),
-			MakeColor(200, 100, 100),
+			MakeColor(1.f, 0.5f, 0.5f),
 			0.f
 		);
 		//Camera Location
 		RENDER.Text(
-			std::to_string(cameraLoca.x) + "," + std::to_string(cameraLoca.y),
+			"Cam Loca : "  + std::to_string(cameraLoca.x) + "," + std::to_string(cameraLoca.y),
 			"±¼¸²20",
 			MakeRect(mouseLoca.x + 150, mouseLoca.y + 150, 500, 100),
-			MakeColor(100, 200, 100)
+			MakeColor(0.5f, 1.f, 0.5f)
 		);
 		//Wheel Value
 		RENDER.Text(
-			std::to_string(MOUSE.GetWheelValue()),
+			"Wheel val : " + std::to_string(MOUSE.GetWheelValue()),
 			"±¼¸²20",
 			MakeRect(mouseLoca.x + 150, mouseLoca.y + 200, 500, 100),
-			MakeColor(100, 100, 100), 0.f);
+			MakeColor(0.5f, 0.5f, 1.f), 0.f);
 	}
 }
 
